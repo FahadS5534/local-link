@@ -5,7 +5,10 @@ import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/theme/app_colors.dart';
 import '../domain/entities/station_proximity_alert.dart';
 import 'providers/alerts_providers.dart';
+import 'widgets/coach_composition_card.dart';
+import 'widgets/live_alarm_tracker_card.dart';
 import 'widgets/set_alert_sheet.dart';
+import 'widgets/station_timeline_card.dart';
 
 /// Screen managing station proximity alarms and geofences.
 class AlertsScreen extends ConsumerWidget {
@@ -39,32 +42,41 @@ class AlertsScreen extends ConsumerWidget {
         data: (alerts) {
           if (alerts.isEmpty) {
             return ListView(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.fromLTRB(16, 16, 16, 88),
               children: [
                 _EmptyAlertsCard(
                   onAddPressed: () => SetAlertSheet.show(context),
                 ),
-                const SizedBox(height: 24),
+                const SizedBox(height: 16),
                 const _HowItWorksCard(),
+                const SizedBox(height: 16),
+                const LiveAlarmTrackerCard(),
+                const SizedBox(height: 16),
+                const CoachCompositionCard(),
+                const SizedBox(height: 16),
+                const StationTimelineCard(),
               ],
             );
           }
 
-          return ListView.separated(
+          return ListView(
             padding: const EdgeInsets.fromLTRB(16, 16, 16, 88),
-            itemCount: alerts.length + 1,
-            separatorBuilder: (_, _) => const SizedBox(height: 12),
-            itemBuilder: (context, index) {
-              if (index == alerts.length) {
-                return const Padding(
-                  padding: EdgeInsets.only(top: 12),
-                  child: _HowItWorksCard(),
-                );
-              }
-
-              final alert = alerts[index];
-              return _AlertCard(alert: alert);
-            },
+            children: [
+              ...alerts.map(
+                (alert) => Padding(
+                  padding: const EdgeInsets.only(bottom: 12),
+                  child: _AlertCard(alert: alert),
+                ),
+              ),
+              const SizedBox(height: 12),
+              const LiveAlarmTrackerCard(),
+              const SizedBox(height: 16),
+              const CoachCompositionCard(),
+              const SizedBox(height: 16),
+              const StationTimelineCard(),
+              const SizedBox(height: 16),
+              const _HowItWorksCard(),
+            ],
           );
         },
       ),

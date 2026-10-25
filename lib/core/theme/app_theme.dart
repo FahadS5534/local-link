@@ -51,51 +51,58 @@ abstract final class AppTheme {
   /// Light theme definition
   static ThemeData get lightTheme {
     final colorScheme = ColorScheme.fromSeed(
-      seedColor: AppColors.primaryBlue,
+      seedColor: AppColors.stitchPrimary,
       brightness: Brightness.light,
-      surface: AppColors.lightSurface,
-      surfaceContainerLowest: AppColors.lightBackground,
+      surface: AppColors.stitchSurface,
+      surfaceContainerLowest: AppColors.stitchSurfaceContainerLowest,
+      surfaceContainerLow: AppColors.stitchSurfaceContainerLow,
+      surfaceContainer: AppColors.stitchSurfaceContainer,
+      surfaceContainerHigh: AppColors.stitchSurfaceContainerHigh,
+      primary: AppColors.stitchPrimary,
+      primaryContainer: AppColors.stitchPrimaryContainer,
+      secondary: AppColors.stitchSecondary,
+      secondaryContainer: AppColors.stitchSecondaryContainer,
     );
 
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
       colorScheme: colorScheme,
-      scaffoldBackgroundColor: AppColors.lightBackground,
+      scaffoldBackgroundColor: AppColors.stitchSurface,
       textTheme: _buildTextTheme(
-        textPrimary: AppColors.lightTextPrimary,
-        textSecondary: AppColors.lightTextSecondary,
+        textPrimary: AppColors.stitchOnSurface,
+        textSecondary: AppColors.stitchOnSurfaceVariant,
       ),
       appBarTheme: const AppBarTheme(
-        backgroundColor: AppColors.lightBackground,
+        backgroundColor: AppColors.stitchSurface,
         elevation: 0,
         scrolledUnderElevation: 1,
         centerTitle: false,
         titleTextStyle: TextStyle(
-          color: AppColors.lightTextPrimary,
+          color: AppColors.stitchPrimary,
           fontSize: 20,
           fontWeight: FontWeight.w700,
         ),
       ),
       cardTheme: CardThemeData(
         elevation: 0,
-        color: AppColors.lightSurface,
+        color: AppColors.stitchSurfaceContainerLowest,
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
-          side: const BorderSide(color: AppColors.lightBorder),
+          side: const BorderSide(color: AppColors.stitchTransitHairline),
         ),
         margin: EdgeInsets.zero,
       ),
-      navigationBarTheme: NavigationBarThemeData(
+      navigationBarTheme: const NavigationBarThemeData(
         elevation: 2,
-        backgroundColor: AppColors.lightSurface,
-        indicatorColor: AppColors.primaryBlue.withAlpha(35),
+        backgroundColor: AppColors.stitchSurface,
+        indicatorColor: AppColors.stitchSurfaceContainerHigh,
         labelBehavior: NavigationDestinationLabelBehavior.alwaysShow,
         height: 68,
       ),
       elevatedButtonTheme: ElevatedButtonThemeData(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primaryBlue,
+          backgroundColor: AppColors.stitchPrimaryContainer,
           foregroundColor: Colors.white,
           elevation: 0,
           minimumSize: const Size(double.infinity, 48),

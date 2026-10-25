@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;min-height:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface-variant": "#43474e", "surface": "#f9f9ff", "secondary-container": "#fd6e60", "surface-container-high": "#dee8ff", "error-container": "#ffdad6", "tertiary-fixed": "#a6f3c4", "secondary-fixed": "#ffdad5", "outline": "#73777f", "surface-container-lowest": "#ffffff", "on-secondary-container": "#6d0005", "on-tertiary-fixed": "#002111", "surface-dim": "#ccdbf8", "primary-fixed": "#d2e4ff", "surface-container-highest": "#d5e3ff", "primary-container": "#244a73", "on-primary-fixed": "#001c37", "surface-tint": "#3c608b", "on-secondary": "#ffffff", "secondary": "#ac332b", "on-secondary-fixed-variant": "#8a1a16", "error": "#ba1a1a", "on-primary": "#ffffff", "on-tertiary-fixed-variant": "#005231", "outline-variant": "#c3c6cf", "primary": "#04335b", "tertiary-container": "#005433", "inverse-surface": "#223147", "on-tertiary": "#ffffff", "on-surface": "#0c1c31", "on-tertiary-container": "#7cc89b", "tertiary-fixed-dim": "#8ad7a9", "on-primary-fixed-variant": "#224871", "on-error-container": "#93000a", "tertiary": "#003b22", "on-error": "#ffffff", "on-secondary-fixed": "#410002", "on-background": "#0c1c31", "surface-container": "#e7eeff", "inverse-on-surface": "#ebf1ff", "background": "#f9f9ff", "surface-container-low": "#f0f3ff", "on-primary-container": "#96bae9", "secondary-fixed-dim": "#ffb4ab", "surface-bright": "#f9f9ff", "inverse-primary": "#a5c9f9", "surface-variant": "#d5e3ff", "primary-fixed-dim": "#a5c9f9" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-lg": "1rem", "space-2xl": "2rem", "margin": "1rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "space-xxs": "0.125rem", "space-xs": "0.25rem", "gutter-tablet": "1rem", "margin-tablet": "1.5rem", "space-md": "0.75rem", "gutter": "0.75rem" }, "fontFamily": { "body-lg": ["Inter"], "title-md": ["Inter"], "tabular-time-lg": ["Inter"], "body-sm": ["Inter"], "title-sm": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "label-md": ["Inter"], "display-lg": ["Inter"], "headline-md": ["Inter"], "tabular-time-md": ["Inter"], "headline-sm": ["Inter"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "title-md": ["15px", { "lineHeight": "20px", "fontWeight": "600" }], "tabular-time-lg": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "title-sm": ["13px", { "lineHeight": "18px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-lg": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "tabular-time-md": ["18px", { "lineHeight": "22px", "fontWeight": "600" }], "headline-sm": ["17px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/95 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between max-w-lg mx-auto w-full"><div class="flex items-center gap-space-sm"><div class="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-on-primary"><span class="material-symbols-outlined text-[22px]">directions_subway</span></div><div class="flex flex-col"><div class="flex items-baseline gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">LocalLink</span><span class="font-label-sm text-label-sm text-secondary font-semibold">मुंबई लोकल</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary-container text-[12px]">check_circle</span><span class="font-label-sm text-label-sm text-on-surface-variant">Offline • Today 04:30 AM</span></div></div></div><div class="flex items-center gap-space-xs"><span class="font-title-sm text-title-sm text-on-surface-variant hidden">Home</span><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WCraSSuOOIYUIwN6LQsFfcvXCzMa04fbpPIss7Cb0YLRck82gAGwwEpqtuvz6O4W9ckrQ1-M9hlUNatYVhgni1JYaAK9Vkf6kT5dEKFbwFTcKlpBJPAWNUTQoju7iFuDhw8SlorHmH2sra9CTwsTtBYk9AwqxNi1XCzP0uKM-NvebcBSG9k1F2xlJS1eL6OqtPBcB7imsetvE8S4jKr4_JyAQ8-bmNw0n1x1eHxtJPialLlWRHt6TZbz4"/><button aria-label="Settings and information" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 max-w-lg mx-auto bg-surface"><div class="flex flex-col w-full pb-8 px-margin gap-space-md">
+<!-- Verified Timetable Offline Ribbon -->
+<div class="flex items-center justify-between px-space-md py-space-xs rounded-xl bg-surface-container text-on-surface">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-[16px] text-tertiary">offline_pin</span>
+<span class="font-label-sm text-label-sm">Timetable: Offline (Nov 2024 V2.4) • Verified</span>
+</div>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-tertiary"></span> Active
+    </span>
+</div>
+<!-- Primary Journey-Search Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-md">
+<!-- Origin & Destination Inputs with Swap Action -->
+<div class="relative flex flex-col gap-space-xs">
+<!-- Source Station Button -->
+<button class="w-full flex items-center justify-between p-space-md rounded-xl bg-surface-container-low text-left min-h-[52px] active:bg-surface-container transition-colors group" type="button">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-2.5 h-2.5 rounded-full bg-secondary shrink-0"></div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">From / येथून</span>
+<div class="flex items-center gap-space-xs truncate">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">BVI</span>
+<span class="font-body-md text-body-md text-on-surface truncate">• Borivali (बोरिवली)</span>
+</div>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold shrink-0">WR</span>
+</button>
+<!-- Tactical Quick Swap Button -->
+<div class="absolute right-4 top-1/2 -translate-y-1/2 z-10">
+<button aria-label="Swap origin and destination" class="w-11 h-11 rounded-full bg-primary text-on-primary shadow-md flex items-center justify-center active:scale-95 transition-transform hover:bg-primary-container" id="swap-stations-btn" type="button">
+<span class="material-symbols-outlined text-[20px] transition-transform duration-300" id="swap-icon">swap_vert</span>
+</button>
+</div>
+<!-- Destination Station Button -->
+<button class="w-full flex items-center justify-between p-space-md rounded-xl bg-surface-container-low text-left min-h-[52px] active:bg-surface-container transition-colors group" type="button">
+<div class="flex items-center gap-space-sm min-w-0">
+<div class="w-2.5 h-2.5 rounded-full bg-primary shrink-0"></div>
+<div class="flex flex-col min-w-0">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">To / येथे</span>
+<div class="flex items-center gap-space-xs truncate">
+<span class="font-headline-sm text-headline-sm text-on-surface font-bold">CCG</span>
+<span class="font-body-md text-body-md text-on-surface truncate">• Churchgate (चर्चगेट)</span>
+</div>
+</div>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold shrink-0">WR</span>
+</button>
+</div>
+<!-- Service Filter Chips -->
+<div class="flex items-center gap-space-xs overflow-x-auto py-1 no-scrollbar">
+<button class="service-pill shrink-0 px-space-md py-1.5 rounded-full bg-primary text-on-primary font-label-md text-label-md transition-all active:scale-95" type="button">All Trains</button>
+<button class="service-pill shrink-0 px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-all active:scale-95" type="button">Fast Only (जलद)</button>
+<button class="service-pill shrink-0 px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-all active:scale-95 flex items-center gap-1" type="button">
+<span class="material-symbols-outlined text-[14px] text-primary">ac_unit</span> AC Local
+      </button>
+<button class="service-pill shrink-0 px-space-md py-1.5 rounded-full bg-surface-container text-on-surface-variant font-label-md text-label-md hover:bg-surface-container-high transition-all active:scale-95" type="button">Ladies Special</button>
+</div>
+<!-- Find Trains CTA -->
+<button class="w-full h-12 bg-primary-container text-on-primary rounded-xl font-title-md text-title-md flex items-center justify-center gap-space-xs shadow-sm active:bg-primary transition-colors" type="button">
+<span class="material-symbols-outlined text-[20px]">search</span>
+<span>Find Trains (गाड्या शोधा)</span>
+</button>
+</div>
+<!-- Live Service Alert Banner -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden flex gap-space-sm items-start">
+<div class="w-1.5 absolute left-0 inset-y-0 bg-secondary"></div>
+<span class="material-symbols-outlined text-secondary text-[22px] shrink-0 mt-0.5 ml-1">warning</span>
+<div class="flex flex-col min-w-0 pr-1">
+<div class="flex items-center justify-between gap-space-xs mb-0.5">
+<span class="font-title-sm text-title-sm text-secondary font-bold">Western Line Alert</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">12m ago</span>
+</div>
+<p class="font-body-md text-body-md text-on-surface">Signal delay between Kandivali and Malad (~8-10 min delay towards Churchgate). Reported by WR Control.</p>
+</div>
+</div>
+<!-- Next Upcoming Departure Widget -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="w-2.5 h-2.5 rounded-full bg-tertiary animate-pulse"></span>
+<span class="font-label-md text-label-md text-on-surface-variant uppercase tracking-wider">Next Departure • BVI → CCG</span>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-bold bg-secondary-fixed px-space-xs py-0.5 rounded">Fast (जलद)</span>
+</div>
+<div class="flex items-baseline justify-between mt-1">
+<div class="flex items-baseline gap-space-xs">
+<span class="font-tabular-time-lg text-tabular-time-lg text-primary tracking-tight font-bold">08:42</span>
+<span class="font-title-sm text-title-sm text-on-surface-variant font-medium">AM</span>
+<span class="font-label-md text-label-md text-secondary ml-1 font-semibold">(in 6 mins)</span>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="px-space-sm py-1 rounded bg-surface-container text-on-surface font-title-sm text-title-sm font-bold tracking-wide">PF 3</span>
+</div>
+</div>
+<!-- Coach Count & Crowd Density Tag -->
+<div class="flex items-center justify-between pt-space-xs">
+<div class="flex items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">15 Cars</span>
+<span class="px-space-xs py-0.5 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm font-medium">110 km/h</span>
+</div>
+<!-- Crowd Tag with visual micro-bars -->
+<div class="flex items-center gap-1.5 px-space-sm py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed-variant">
+<div class="flex items-end gap-0.5 h-3">
+<span class="w-1 h-1.5 rounded-full bg-secondary"></span>
+<span class="w-1 h-2.5 rounded-full bg-secondary"></span>
+<span class="w-1 h-2 rounded-full bg-secondary/40"></span>
+<span class="w-1 h-3 rounded-full bg-secondary/20"></span>
+</div>
+<span class="font-label-sm text-label-sm font-semibold">Moderate (मध्यम) • 42 reports</span>
+</div>
+</div>
+<!-- Stop Highlights Pathway -->
+<div class="mt-space-xs pt-space-sm border-t border-surface-container-high/40 flex flex-col gap-1">
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Fast Stoppages:</span>
+<div class="flex items-center justify-between text-on-surface font-label-md text-label-md font-semibold">
+<span class="text-primary">BVI</span>
+<span class="text-on-surface-variant">→</span>
+<span>ADH</span>
+<span class="text-on-surface-variant">→</span>
+<span>BA</span>
+<span class="text-on-surface-variant">→</span>
+<span>DDR</span>
+<span class="text-on-surface-variant">→</span>
+<span>BCT</span>
+<span class="text-on-surface-variant">→</span>
+<span class="text-primary font-bold">CCG</span>
+</div>
+</div>
+</div>
+<!-- Saved Commute Shortcuts -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-1">
+<span class="font-title-md text-title-md text-on-surface">Saved Commutes (माझे मार्ग)</span>
+<button class="font-label-md text-label-md text-primary font-semibold hover:underline" type="button">Edit</button>
+</div>
+<div class="grid grid-cols-1 gap-space-xs">
+<!-- Card 1 -->
+<button class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between text-left active:bg-surface-container transition-colors group" type="button">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-primary shrink-0 group-hover:bg-primary group-hover:text-on-primary transition-colors">
+<span class="material-symbols-outlined text-[20px]">work</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface font-bold truncate">Borivali ⇄ Churchgate</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">WR</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Daily Work • Fast Local • 48 min</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="font-title-sm text-title-sm text-primary font-bold">3 min</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">chevron_right</span>
+</div>
+</button>
+<!-- Card 2 -->
+<button class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between text-left active:bg-surface-container transition-colors group" type="button">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-secondary shrink-0 group-hover:bg-secondary group-hover:text-on-secondary transition-colors">
+<span class="material-symbols-outlined text-[20px]">train</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface font-bold truncate">Thane ⇄ CSMT</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container-highest text-primary font-label-sm text-label-sm font-semibold">CR</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Central Fast • 42 min</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="font-title-sm text-title-sm text-primary font-bold">7 min</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">chevron_right</span>
+</div>
+</button>
+<!-- Card 3 -->
+<button class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex items-center justify-between text-left active:bg-surface-container transition-colors group" type="button">
+<div class="flex items-center gap-space-md min-w-0">
+<div class="w-10 h-10 rounded-xl bg-surface-container flex items-center justify-center text-tertiary shrink-0 group-hover:bg-tertiary group-hover:text-on-tertiary transition-colors">
+<span class="material-symbols-outlined text-[20px]">hub</span>
+</div>
+<div class="flex flex-col min-w-0">
+<div class="flex items-center gap-space-xs">
+<span class="font-title-sm text-title-sm text-on-surface font-bold truncate">Andheri ⇄ Wadala Rd</span>
+<span class="px-1.5 py-0.2 rounded bg-tertiary-fixed text-on-tertiary-fixed-variant font-label-sm text-label-sm font-semibold">HR</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Harbour Link • 34 min</span>
+</div>
+</div>
+<div class="flex items-center gap-space-xs shrink-0">
+<span class="font-title-sm text-title-sm text-primary font-bold">11 min</span>
+<span class="material-symbols-outlined text-on-surface-variant text-[18px]">chevron_right</span>
+</div>
+</button>
+</div>
+</div>
+<!-- Line Status Quick Summary Grid -->
+<div class="flex flex-col gap-space-xs">
+<div class="flex items-center justify-between px-1">
+<span class="font-title-md text-title-md text-on-surface">Network Line Status</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Live updates</span>
+</div>
+<div class="grid grid-cols-3 gap-space-xs">
+<!-- WR -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-bold text-secondary">WR</span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Western</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold truncate">Normal (+2m)</span>
+</div>
+<!-- CR -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-bold text-primary">CR</span>
+<span class="w-2 h-2 rounded-full bg-tertiary"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Central</span>
+<span class="font-label-sm text-label-sm text-tertiary font-semibold truncate">Normal (+4m)</span>
+</div>
+<!-- HR -->
+<div class="bg-surface-container-lowest p-space-sm rounded-xl flex flex-col gap-1 shadow-sm">
+<div class="flex items-center justify-between">
+<span class="font-title-sm text-title-sm font-bold text-on-surface-variant">HR</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Harbour</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold truncate">Block Kurla PF7</span>
+</div>
+</div>
+</div>
+</div>
+<script>
+  // Tactical station swap micro-interaction
+  const swapBtn = document.getElementById('swap-stations-btn');
+  const swapIcon = document.getElementById('swap-icon');
+  let rotated = false;
+  
+  if (swapBtn && swapIcon) {
+    swapBtn.addEventListener('click', () => {
+      rotated = !rotated;
+      swapIcon.style.transform = rotated ? 'rotate(180deg)' : 'rotate(0deg)';
+    });
+  }
+
+  // Service filter pills dynamic toggle
+  const pills = document.querySelectorAll('.service-pill');
+  pills.forEach(pill => {
+    pill.addEventListener('click', () => {
+      pills.forEach(p => {
+        p.classList.remove('bg-primary', 'text-on-primary');
+        p.classList.add('bg-surface-container', 'text-on-surface-variant');
+      });
+      pill.classList.remove('bg-surface-container', 'text-on-surface-variant');
+      pill.classList.add('bg-primary', 'text-on-primary');
+    });
+  });
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-2px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-title-sm bg-surface-container-high/60"><div class="flex justify-around items-center h-16 max-w-lg mx-auto px-space-xs"><a aria-current="page" class="flex-1 min-h-[48px] flex flex-col items-center justify-center rounded-lg py-1 transition-colors text-primary font-title-sm bg-surface-container-high/60" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">train</span><span class="font-label-sm text-label-sm leading-tight mt-0.5">शोधा / Home</span></a><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center rounded-lg text-on-surface-variant py-1 transition-colors hover:text-on-surface" data-path="search-and-schedule" href="#"><span class="material-symbols-outlined text-[22px]">schedule</span><span class="font-label-sm text-label-sm leading-tight mt-0.5">वेळापत्रक / Search</span></a><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center rounded-lg text-on-surface-variant py-1 transition-colors hover:text-on-surface" data-path="live-journey" href="#"><span class="material-symbols-outlined text-[22px]">navigation</span><span class="font-label-sm text-label-sm leading-tight mt-0.5">प्रवास / Live</span></a><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center rounded-lg text-on-surface-variant py-1 transition-colors hover:text-on-surface" data-path="network-map" href="#"><span class="material-symbols-outlined text-[22px]">map</span><span class="font-label-sm text-label-sm leading-tight mt-0.5">नकाशा / Network</span></a></div></nav></body></html>

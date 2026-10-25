@@ -7,6 +7,41 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.2.0] - Stitch Design System Full Integration (2026-10-25)
+
+### Added
+- **Full Stitch Design System Integration (`stitch_project_workspace_builder`)**:
+  - Implemented exact palette, typography, hairline borders, and elevation tokens across `AppColors` and `AppTheme`:
+    - `stitchPrimary` (`#04335B`), `stitchPrimaryContainer` (`#244A73`), `stitchSecondary` (`#AC332B`), `stitchSecondaryContainer` (`#FD6E60`), `stitchSecondaryFixed` (`#FFDAD5`), `stitchSurface` (`#F9F9FF`), `stitchTransitHairline` (`#E4E2DC`), `stitchCentralOrange` (`#F28C28`), `stitchHarbourCyan` (`#0284C7`), `stitchTransHarbourPurple` (`#7C3AED`).
+  - **Screen 1 — Journey & Destination Alarm (`locallink_journey_destination_alarm`)**:
+    - Horizontal 15-Car Rake Visualizer (`C1`–`C15`, `ENG`, `C8 YOU` active highlight with navy box, shadow, and pointer, Ladies, First Class, General, Divyang, and Dadar Center FOB alignment advice).
+    - `LiveAlarmTrackerCard` with approach countdown (`1.8 km to Marine Lines`, `Next Stop in 3 min`), `Destination Alarm ACTIVE`, location accuracy, and tactile switch toggle pill.
+    - Vertical stop progression timeline card.
+  - **Screen 2 — Route Results (`locallink_route_results`)**:
+    - Sticky Headplate (`BVI ➔ CCG`, Devanagari subtitle, swap button).
+    - Time Window Selector Banner (`Morning Peak Window • 08:30 AM – 09:30 AM • Regular frequency`).
+    - 5px left corridor indicator rail, `FASTEST COMMUTE • सर्वोत्तम पर्याय` pill, and `On Schedule (वेळेवर)` check pill.
+    - Departure / Duration Graphical Bridge / Arrival & Platform box (`PF 3`).
+    - 4-tier Crowd Meter (`Heavy (गर्दी)` with vertical micro-bars) and expandable stop details.
+  - **Screen 3 — Network Map & Hubs (`locallink_network_map_hubs`)**:
+    - Top Notification Status Strip (`Line Status: All Normal` pulsing dot & `GPS Synced` pill).
+    - View Switcher Segmented Control (`Schematic Transit Map` and `Geographic View`).
+    - Corridor Filter Badges with Stitch tokens (`WR`, `CR`, `HR`, `TH/M`).
+    - Station Inspector Dossier Bottom Sheet (`Dadar Junction [DDR]`, dual WR/CR platform allocation, direct departures, 3-column accessibility cards, and quick origin/destination setters).
+  - **Screen 4 — Commuter Dashboard & Station Search (`locallink_commuter_home` & `locallink_station_search`)**:
+    - Verified Timetable Offline Ribbon (`Timetable: Offline (Nov 2024 V2.4) • Verified • Active`).
+    - From/To Station Card with tactical swap button and horizontal service filter chips (`All Trains`, `Fast Only`, `AC Local`, `Ladies Special`).
+    - Dadar Interchange Node Dossier Card (North FOB bridge tip, 3-column amenities grid).
+    - Departure Time Planner (`Plan Departure (प्रवास वेळ)` with `Depart Now` pulsing dot & `Reverse Route` button).
+    - Next Upcoming Departure Widget (08:42 AM in 6 mins, PF 3, crowd micro-bars, fast stoppages pathway).
+    - Saved Commutes Shortcuts and Network Line Status Grid (`WR`, `CR`, `HR`).
+  - **Shell & Navigation**:
+    - Upgraded `AppScaffold` bottom navigation with Stitch surface canvas and 1px top hairline boundary.
+    - Re-styled `LinesScreen` corridor cards with left accent stripes and hairline frames.
+  - **Automated Verification**:
+    - 88/88 test suites passing cleanly (`flutter test`).
+    - 0 warnings, 0 errors, 0 lints (`flutter analyze`).
+
 ## [1.1.0] - Master Implementation & Stitch UI Integration (2026-10-25)
 
 ### Added
