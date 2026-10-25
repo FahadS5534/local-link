@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [1.1.0] - Master Implementation & Stitch UI Integration (2026-10-25)
+
+### Added
+- **Stitch UI Project Integration (`3963698584923642931`)**:
+  - Retrieved HTML code and PNG assets for 4 core Stitch screens in `stitch_screens/`:
+    - `07f562ca7acd426eabb630a5bf681bc6`: Journey & Destination Alarm (15-car rake visualizer C1-C15, approach countdown, stop timeline).
+    - `cf20c0f8193c41ab97f87e68b505debf`: Route Results (Fast/Slow badges, transfer timing, platform numbers).
+    - `457e4683d57b4784974802d597be4250`: Network Map & Hubs (Corridor lines, junction badges, station bottom sheet).
+    - `aa16f7d630ad4659903e832fa0111d9b`: Station Search & Commuter Dashboard (Origin/Destination inputs, saved commute chips, Sunday Mega Block banner).
+- **Atomic Timetable Sync (`TimetableSyncService`)**:
+  - SHA-256 integrity verification, atomic transaction rollback on malformed dataset, and database audit logs.
+- **Interactive OpenStreetMap Map (`RailwayMapScreen`)**:
+  - Zero paid API key map implementation with OpenStreetMap raster tiles, multi-corridor polylines, and station marker sheets.
+- **Crowdsourced Disruption & Sunday Mega Block Advisories (`DriftDisruptionRepository`)**:
+  - SQLite tables for disruptions and service advisories with multilingual support and 15/30-minute freshness decay.
+- **Route Sequence Proximity Alerts (`ProximityAlarmService.evaluateRouteProgression`)**:
+  - Distance hysteresis, station progression tracking, duplicate alert suppression, and manual stop fallback.
+- **Commuter Dashboard (`SearchScreen`)**:
+  - Pinned saved commutes, search history with limits and clear action, and active Mega Block alert banner.
+- **AI Journey Assistant & Prediction**:
+  - `JourneyAssistantService` for trilingual conversational routing and `CrowdPredictionService` with peak-hour heuristics and `InsufficientData` state.
+- **Zero-Cost-First Policy Documentation**:
+  - Added `docs/API_PROVIDERS.md` cataloging all map and timetable data sources with $0.00 operating cost.
+
 ## [1.0.0] - Phase 10 Completed (2026-10-25)
 
 ### Added

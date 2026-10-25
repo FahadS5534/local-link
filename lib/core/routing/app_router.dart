@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../../features/alerts/presentation/alerts_screen.dart';
+import '../../features/assistant/presentation/assistant_screen.dart';
 import '../../features/lines/presentation/lines_screen.dart';
+import '../../features/map/presentation/railway_map_screen.dart';
 import '../../features/search/presentation/search_screen.dart';
 import '../../features/settings/presentation/settings_screen.dart';
 import '../../features/shell/presentation/app_scaffold.dart';
@@ -36,6 +38,19 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 path: '/lines',
                 builder: (context, state) => const LinesScreen(),
+                routes: [
+                  GoRoute(
+                    path: 'map',
+                    builder: (context, state) {
+                      final extra = state.extra as Map<String, String>?;
+                      return RailwayMapScreen(
+                        initialStationId: extra?['stationId'],
+                        originStationId: extra?['originId'],
+                        destinationStationId: extra?['destId'],
+                      );
+                    },
+                  ),
+                ],
               ),
             ],
           ),
@@ -58,6 +73,10 @@ final appRouterProvider = Provider<GoRouter>((ref) {
             ],
           ),
         ],
+      ),
+      GoRoute(
+        path: '/assistant',
+        builder: (context, state) => const AssistantScreen(),
       ),
     ],
   );

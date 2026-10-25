@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../map/presentation/railway_map_screen.dart';
 
-/// Screen listing Mumbai Suburban Railway corridors and lines.
+/// Screen displaying Mumbai Suburban Railway corridors and interactive map.
 class LinesScreen extends StatelessWidget {
   const LinesScreen({super.key});
 
@@ -10,54 +11,71 @@ class LinesScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final l10n = context.l10n;
 
-    return Scaffold(
-      appBar: AppBar(title: Text(l10n.linesScreenTitle)),
-      body: ListView(
-        padding: const EdgeInsets.all(16),
-        children: [
-          _LineCard(
-            title: l10n.westernLineTitle,
-            corridor: 'Churchgate — Dahanu Road',
-            color: AppColors.westernLine,
-            stationCount: 36,
-            interchanges: const [
-              'Dadar (Central)',
-              'Andheri (Metro 1)',
-              'Bandra (Harbour)',
+    return DefaultTabController(
+      length: 2,
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(l10n.linesScreenTitle),
+          bottom: const TabBar(
+            tabs: [
+              Tab(icon: Icon(Icons.view_list_rounded), text: 'Corridors'),
+              Tab(icon: Icon(Icons.map_rounded), text: 'Interactive Map'),
             ],
           ),
-          const SizedBox(height: 16),
-          _LineCard(
-            title: l10n.centralLineTitle,
-            corridor: 'CSMT — Kalyan / Kasara / Khopoli',
-            color: AppColors.centralLine,
-            stationCount: 26,
-            interchanges: const [
-              'Dadar (Western)',
-              'Kurla (Harbour)',
-              'Thane (Trans-Harbour)',
-            ],
-          ),
-          const SizedBox(height: 16),
-          _LineCard(
-            title: l10n.harbourLineTitle,
-            corridor: 'CSMT — Panvel & Goregaon',
-            color: AppColors.harbourLine,
-            stationCount: 35,
-            interchanges: const [
-              'Vadala Road (Goregaon branch)',
-              'Kurla (Central)',
-            ],
-          ),
-          const SizedBox(height: 16),
-          _LineCard(
-            title: l10n.transHarbourLineTitle,
-            corridor: 'Thane — Vashi / Nerul / Panvel',
-            color: AppColors.transHarbourLine,
-            stationCount: 10,
-            interchanges: const ['Thane (Central)', 'Vashi (Harbour)'],
-          ),
-        ],
+        ),
+        body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            ListView(
+              padding: const EdgeInsets.all(16),
+              children: [
+                _LineCard(
+                  title: l10n.westernLineTitle,
+                  corridor: 'Churchgate — Dahanu Road',
+                  color: AppColors.westernLine,
+                  stationCount: 36,
+                  interchanges: const [
+                    'Dadar (Central)',
+                    'Andheri (Metro 1)',
+                    'Bandra (Harbour)',
+                  ],
+                ),
+                const SizedBox(height: 16),
+                _LineCard(
+                  title: l10n.centralLineTitle,
+                  corridor: 'CSMT — Kalyan / Kasara / Khopoli',
+                  color: AppColors.centralLine,
+                  stationCount: 26,
+                  interchanges: const [
+                    'Dadar (Western)',
+                    'Kurla (Harbour)',
+                    'Thane (Trans-Harbour)',
+                  ],
+                ),
+                const SizedBox(height: 16),
+                _LineCard(
+                  title: l10n.harbourLineTitle,
+                  corridor: 'CSMT — Panvel & Goregaon',
+                  color: AppColors.harbourLine,
+                  stationCount: 35,
+                  interchanges: const [
+                    'Vadala Road (Goregaon branch)',
+                    'Kurla (Central)',
+                  ],
+                ),
+                const SizedBox(height: 16),
+                _LineCard(
+                  title: l10n.transHarbourLineTitle,
+                  corridor: 'Thane — Vashi / Nerul / Panvel',
+                  color: AppColors.transHarbourLine,
+                  stationCount: 10,
+                  interchanges: const ['Thane (Central)', 'Vashi (Harbour)'],
+                ),
+              ],
+            ),
+            const RailwayMapScreen(),
+          ],
+        ),
       ),
     );
   }

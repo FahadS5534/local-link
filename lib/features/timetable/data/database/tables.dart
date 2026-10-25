@@ -64,3 +64,68 @@ class DatasetMetadataTable extends Table {
   @override
   Set<Column> get primaryKey => {key};
 }
+
+/// Commuter saved journeys (e.g. Home, Work, College).
+class SavedJourneysTable extends Table {
+  @override
+  String get tableName => 'saved_journeys';
+
+  TextColumn get id => text()();
+  TextColumn get label => text()();
+  TextColumn get originStationId => text()();
+  TextColumn get destinationStationId => text()();
+  BoolColumn get isPinned => boolean().withDefault(const Constant(false))();
+  DateTimeColumn get createdAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+/// Commuter journey search history and commute statistics.
+class JourneyHistoryTable extends Table {
+  @override
+  String get tableName => 'journey_history';
+
+  TextColumn get id => text()();
+  TextColumn get originStationId => text()();
+  TextColumn get destinationStationId => text()();
+  IntColumn get estimatedDurationMinutes => integer()();
+  DateTimeColumn get queriedAt => dateTime()();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+/// Local cached railway service advisories and disruption notices.
+class ServiceAdvisoriesTable extends Table {
+  @override
+  String get tableName => 'service_advisories';
+
+  TextColumn get id => text()();
+  TextColumn get lineId => text()();
+  TextColumn get titleEn => text()();
+  TextColumn get titleMr => text()();
+  TextColumn get titleHi => text()();
+  TextColumn get descriptionEn => text()();
+  TextColumn get descriptionMr => text()();
+  TextColumn get descriptionHi => text()();
+  TextColumn get severity => text()();
+  DateTimeColumn get effectiveFrom => dateTime()();
+  DateTimeColumn get effectiveUntil => dateTime()();
+  BoolColumn get isVerified => boolean().withDefault(const Constant(true))();
+
+  @override
+  Set<Column> get primaryKey => {id};
+}
+
+/// Timetable synchronization audit log and version manifests.
+class SyncHistoryTable extends Table {
+  @override
+  String get tableName => 'sync_history';
+
+  IntColumn get id => integer().autoIncrement()();
+  TextColumn get datasetVersion => text()();
+  TextColumn get checksum => text()();
+  TextColumn get status => text()();
+  DateTimeColumn get syncedAt => dateTime()();
+}

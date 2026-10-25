@@ -16,6 +16,10 @@ class StationProximityAlert {
   final AlertStatus status;
   final DateTime createdAt;
   final DateTime? triggeredAt;
+  final List<String> orderedRouteStationIds;
+  final int stopsBeforeAlert;
+  final int currentStopIndex;
+  final String? destinationStationId;
 
   const StationProximityAlert({
     required this.id,
@@ -28,11 +32,26 @@ class StationProximityAlert {
     this.status = AlertStatus.active,
     required this.createdAt,
     this.triggeredAt,
+    this.orderedRouteStationIds = const [],
+    this.stopsBeforeAlert = 1,
+    this.currentStopIndex = 0,
+    this.destinationStationId,
   });
 
   bool get isActive => status == AlertStatus.active;
   bool get isTriggered => status == AlertStatus.triggered;
   bool get isMuted => status == AlertStatus.muted;
+
+  /// Returns true if this alert is sequence-aware with an active ordered station list.
+  bool get hasRouteSequence => orderedRouteStationIds.length > 1;
+
+  /// Remaining stops before arriving at destination.
+  int get remainingStops {
+    if (!hasRouteSequence) return 0;
+    final total = orderedRouteStationIds.length;
+    final remaining = (total - 1) - currentStopIndex;
+    return remaining > 0 ? remaining : 0;
+  }
 
   StationProximityAlert copyWith({
     String? id,
@@ -45,6 +64,10 @@ class StationProximityAlert {
     AlertStatus? status,
     DateTime? createdAt,
     DateTime? triggeredAt,
+    List<String>? orderedRouteStationIds,
+    int? stopsBeforeAlert,
+    int? currentStopIndex,
+    String? destinationStationId,
   }) {
     return StationProximityAlert(
       id: id ?? this.id,
@@ -57,6 +80,11 @@ class StationProximityAlert {
       status: status ?? this.status,
       createdAt: createdAt ?? this.createdAt,
       triggeredAt: triggeredAt ?? this.triggeredAt,
+      orderedRouteStationIds:
+          orderedRouteStationIds ?? this.orderedRouteStationIds,
+      stopsBeforeAlert: stopsBeforeAlert ?? this.stopsBeforeAlert,
+      currentStopIndex: currentStopIndex ?? this.currentStopIndex,
+      destinationStationId: destinationStationId ?? this.destinationStationId,
     );
   }
 

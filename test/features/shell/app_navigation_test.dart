@@ -21,6 +21,8 @@ void main() {
     expect(find.text('Western Line'), findsOneWidget);
     expect(find.text('Central Line (Main)'), findsOneWidget);
     expect(find.text('Harbour Line'), findsOneWidget);
+    await tester.drag(find.text('Western Line'), const Offset(0, -300));
+    await tester.pumpAndSettle();
     expect(find.text('Trans-Harbour Line'), findsOneWidget);
 
     // 3. Tap "Alerts" navigation destination

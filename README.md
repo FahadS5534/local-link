@@ -37,6 +37,23 @@
 - **Coach-Specific Granularity**: Report and inspect crowding by coach class (Second Class, First Class, Ladies, Divyang).
 - **Graceful Offline Decoupling**: If network connectivity drops, core timetable search and routing remain completely unaffected.
 
+### 🗺️ Interactive Suburban Railway Network Map (Zero Paid APIs)
+- **OpenStreetMap Raster Integration**: Powered by `flutter_map` with OpenStreetMap raster tiles, adhering to strict zero-cost-first open-source architecture (ADR-005, `docs/API_PROVIDERS.md`).
+- **Color-Coded Corridors**: Renders official line colors across Western (Red), Central (Blue), Harbour (Yellow/Amber), and Trans-Harbour (Green).
+- **Interactive Station Markers & Bottom Sheets**: Tap any station or interchange hub to inspect connecting corridors, coordinates, and view live departures.
+
+### 🤖 Trilingual Conversational Journey Assistant
+- **Natural Language Journey Queries**: Ask journey questions naturally in English, मराठी (e.g. `दादर ते ठाणे गाडी कधी आहे?`), or हिन्दी (e.g. `चर्चगेट से अंधेरी ट्रेन`).
+- **Dadar Junction FOB Advice**: Contextual interchange directions guiding commuters between Western Platform 1-3 and Central Platform 4-6 via foot-over-bridges.
+- **Instant Quick Prompts**: Quick prompt chips for fast access to popular queries, Sunday Mega Block schedules, and AC local timetables.
+
+### 🎨 Stitch UI Design System Alignment
+- **Pixel-Accurate Stitch Integration**: Faithful implementation of design assets from Stitch Project `3963698584923642931` (located in `stitch_screens/`):
+  - **Journey & Destination Alarm** (`07f562ca7acd426eabb630a5bf681bc6`): 15-car rake visualizer (C1-C15 with Ladies/Divyangjan/First Class chips), approach countdown, and stop progression timeline.
+  - **Route Results** (`cf20c0f8193c41ab97f87e68b505debf`): Clean route cards with Fast/Slow indicators, transfer buffers, and intermediate stop expansion.
+  - **Network Map & Hubs** (`457e4683d57b4784974802d597be4250`): Full corridor map with interchange hub badges (DDR, CSMT, TNA, KYN).
+  - **Station Search & Commuter Dashboard** (`aa16f7d630ad4659903e832fa0111d9b`): Pinned "My Saved Commutes", search history, quick junction chips, and live Sunday Mega Block advisory banner.
+
 ### 🌐 Trilingual First-Class Citizen
 - Full localization across all screens, modals, badges, and alerts in:
   - **English**
@@ -207,6 +224,7 @@ flutter test
 | [docs/PHASES.md](docs/PHASES.md) | 11-phase implementation roadmap with verified exit criteria |
 | [docs/TROUBLESHOOTING.md](docs/TROUBLESHOOTING.md) | Verified fixes for build_runner, ARB localization, and native sqlite3 |
 | [docs/RELEASE_CHECKLIST.md](docs/RELEASE_CHECKLIST.md) | Comprehensive pre-release verification checklist |
+| [docs/API_PROVIDERS.md](docs/API_PROVIDERS.md) | Zero-Cost-First provider policy, endpoints, rate limits & cost accounting |
 | [CHANGELOG.md](CHANGELOG.md) | Chronological version history and milestone entries |
 
 ---

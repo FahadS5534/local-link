@@ -1,8 +1,11 @@
 import 'dart:io';
 import 'package:drift/native.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:local_link/features/search/presentation/search_screen.dart';
+import 'package:local_link/features/commute/presentation/providers/commute_providers.dart';
+import 'package:local_link/features/crowd/presentation/providers/crowd_providers.dart';
 import 'package:local_link/features/timetable/data/database/app_database.dart';
 import 'package:local_link/features/timetable/data/datasources/timetable_parser.dart';
 import 'package:local_link/features/timetable/data/repositories/drift_timetable_repository.dart';
@@ -13,6 +16,7 @@ import '../../helpers/pump_app.dart';
 void main() {
   late AppDatabase db;
   late DriftTimetableRepository repository;
+  late List<Override> testOverrides;
   const parser = TimetableParser();
 
   setUp(() async {
@@ -29,6 +33,14 @@ void main() {
     final trips = parser.parseTripsJson(tripsRaw, stationMap);
 
     await db.seedDatabase(stations: stations, tripsWithStops: trips);
+
+    testOverrides = [
+      timetableRepositoryProvider.overrideWithValue(repository),
+      databaseProvider.overrideWithValue(db),
+      savedJourneysStreamProvider.overrideWith((ref) => Stream.value([])),
+      journeyHistoryStreamProvider.overrideWith((ref) => Stream.value([])),
+      activeAdvisoriesProvider.overrideWith((ref) async => []),
+    ];
   });
 
   tearDown(() async {
@@ -39,8 +51,9 @@ void main() {
     testWidgets('renders origin, destination, and swap button', (tester) async {
       await tester.pumpLocalizedWidget(
         const SearchScreen(),
-        overrides: [timetableRepositoryProvider.overrideWithValue(repository)],
+        overrides: testOverrides,
       );
+      await tester.pumpAndSettle();
 
       expect(find.text('Find Trains'), findsOneWidget);
       expect(find.byIcon(Icons.swap_vert), findsOneWidget);
@@ -52,10 +65,11 @@ void main() {
     ) async {
       await tester.pumpLocalizedWidget(
         const SearchScreen(),
-        overrides: [timetableRepositoryProvider.overrideWithValue(repository)],
+        overrides: testOverrides,
       );
+      await tester.pumpAndSettle();
 
-      final cardFinder = find.byType(Card);
+      final cardFinder = find.byType(Card).first;
 
       // Initial: Churchgate (CCG) -> Borivali (BVI) inside selection card
       expect(
@@ -93,10 +107,11 @@ void main() {
     ) async {
       await tester.pumpLocalizedWidget(
         const SearchScreen(),
-        overrides: [timetableRepositoryProvider.overrideWithValue(repository)],
+        overrides: testOverrides,
       );
+      await tester.pumpAndSettle();
 
-      final cardFinder = find.byType(Card);
+      final cardFinder = find.byType(Card).first;
 
       // Tap Dadar junction ActionChip
       await tester.tap(find.widgetWithText(ActionChip, 'Dadar (DDR)'));
@@ -114,8 +129,9 @@ void main() {
     ) async {
       await tester.pumpLocalizedWidget(
         const SearchScreen(),
-        overrides: [timetableRepositoryProvider.overrideWithValue(repository)],
+        overrides: testOverrides,
       );
+      await tester.pumpAndSettle();
 
       // Tap Search Routes
       await tester.tap(find.text('Search Routes'));

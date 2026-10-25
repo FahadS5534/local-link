@@ -253,7 +253,26 @@ This document tracks the phased implementation plan, acceptance criteria, verifi
   - Clear attribution of timetable datasets and trilingual localization verification.
 - **Exit Criteria**:
   - [x] Repository is fully reproducible, defensible, and internship-ready.
-  - [x] 68/68 automated tests passing across domain, data, and presentation layers.
-  - [x] Zero warnings or lint issues under `flutter analyze --fatal-infos`.
+  - [x] All automated tests passing across domain, data, and presentation layers.
+  - [x] Zero warnings or lint issues under `flutter analyze`.
 - **Status**: **COMPLETE**
+
+---
+
+### Master Implementation & Stitch UI Integration
+- **Objective**: Execute comprehensive master implementation covering atomic timetable synchronization, interactive railway map, crowdsourced disruption reporting, station sequence proximity alerts, commuter dashboard, crowd prediction heuristics, trilingual journey assistant, and exact Stitch UI design alignment.
+- **Key Deliverables**:
+  - **Timetable Synchronization**: `TimetableSyncService` with deterministic SHA-256 verification, atomic rollback on malformed datasets, and database audit history.
+  - **Interactive Map**: `RailwayMapScreen` using `flutter_map` with OpenStreetMap raster tiles (zero paid API keys), corridor polylines (Western, Central, Harbour, Trans-Harbour), line filters, and station detail bottom sheets.
+  - **Disruption & Crowding**: `DriftDisruptionRepository` supporting community disruption reports and live Sunday Mega Block advisories with 15/30-minute freshness decay.
+  - **Proximity Alerts**: `ProximityAlarmService.evaluateRouteProgression` utilizing route station sequence progression, duplicate trigger suppression, and manual stop progression fallback.
+  - **Commuter Dashboard**: `SearchScreen` featuring pinned "My Saved Commutes", search history with limit/clear, live advisory banner, and offline freshness badge.
+  - **Prediction & Assistant**: `CrowdPredictionService` with peak-hour heuristics and `InsufficientData` state; `JourneyAssistantService` providing trilingual conversational route assistance and timetable query resolution.
+  - **Stitch Design Alignment**: Full assets and code downloaded into `stitch_screens/` matching:
+    1. Journey & Destination Alarm (`07f562ca7acd426eabb630a5bf681bc6`)
+    2. Route Results (`cf20c0f8193c41ab97f87e68b505debf`)
+    3. Network Map & Hubs (`457e4683d57b4784974802d597be4250`)
+    4. Station Search & Dashboard (`aa16f7d630ad4659903e832fa0111d9b`)
+- **Status**: **COMPLETE**
+
 

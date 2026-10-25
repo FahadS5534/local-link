@@ -51,6 +51,21 @@ class RoutePlan {
   /// True if this is a direct single-train journey.
   bool get isDirect => legs.length == 1;
 
+  /// Number of transfers required.
+  int get transferCount => legs.length > 1 ? legs.length - 1 : 0;
+
+  /// Formatted departure time of the initial leg.
+  String get departureTimeFormatted =>
+      legs.isNotEmpty ? legs.first.departureTimeFormatted : '--:--';
+
+  /// Formatted arrival time of the final leg.
+  String get arrivalTimeFormatted =>
+      legs.isNotEmpty ? legs.last.arrivalTimeFormatted : '--:--';
+
+  /// Total intermediate stops across all journey legs.
+  int get intermediateStopsCount =>
+      legs.fold<int>(0, (sum, leg) => sum + leg.intermediateStops.length);
+
   /// Total door-to-door journey duration including transfer buffers.
   int get totalDurationMinutes {
     if (legs.isEmpty) return 0;

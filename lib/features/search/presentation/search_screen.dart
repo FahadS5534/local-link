@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../../core/l10n/l10n_extension.dart';
 import '../../../core/theme/app_colors.dart';
+import '../../commute/domain/entities/journey_history_entry.dart';
+import '../../commute/domain/entities/saved_journey.dart';
+import '../../commute/presentation/providers/commute_providers.dart';
+import '../../crowd/presentation/providers/crowd_providers.dart';
 import '../../timetable/domain/entities/station.dart';
 import '../../timetable/presentation/providers/timetable_providers.dart';
 import '../../timetable/presentation/screens/timetable_results_screen.dart';
 import 'widgets/station_picker_sheet.dart';
 
-/// Primary search and route planning screen.
+/// Primary search and commuter dashboard screen.
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
 
@@ -71,6 +76,20 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
   void _onSearch() {
     if (_origin == null || _destination == null) return;
+
+    // Record into local search history
+    ref
+        .read(savedJourneysRepositoryProvider)
+        .recordJourneyHistory(
+          JourneyHistoryEntry(
+            id: 'hist_${DateTime.now().millisecondsSinceEpoch}',
+            originStationId: _origin!.id,
+            destinationStationId: _destination!.id,
+            estimatedDurationMinutes: 45,
+            queriedAt: DateTime.now(),
+          ),
+        );
+
     Navigator.of(context).push(
       MaterialPageRoute<void>(
         builder: (_) => TimetableResultsScreen(
@@ -81,18 +100,65 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     );
   }
 
+  Future<void> _saveCurrentJourney() async {
+    if (_origin == null || _destination == null) return;
+
+    final id = 'saved_${_origin!.code}_${_destination!.code}';
+    final journey = SavedJourney(
+      id: id,
+      label: '${_origin!.code} ⇄ ${_destination!.code}',
+      originStationId: _origin!.id,
+      destinationStationId: _destination!.id,
+      isPinned: true,
+      createdAt: DateTime.now(),
+    );
+
+    await ref.read(savedJourneysRepositoryProvider).saveJourney(journey);
+    if (mounted) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          content: Text(
+            'Saved ${_origin!.code} → ${_destination!.code} to My Commutes!',
+          ),
+          behavior: SnackBarBehavior.floating,
+        ),
+      );
+    }
+  }
+
+  Future<void> _loadRoute(String originId, String destId) async {
+    final repo = ref.read(timetableRepositoryProvider);
+    final o = await repo.getStationById(originId);
+    final d = await repo.getStationById(destId);
+    if (o != null && d != null && mounted) {
+      setState(() {
+        _origin = o;
+        _destination = d;
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final l10n = context.l10n;
     final locale = Localizations.localeOf(context).languageCode;
     final theme = Theme.of(context);
 
+    final savedJourneysAsync = ref.watch(savedJourneysStreamProvider);
+    final historyAsync = ref.watch(journeyHistoryStreamProvider);
+    final advisoriesAsync = ref.watch(activeAdvisoriesProvider);
+
     return Scaffold(
       appBar: AppBar(
         title: Text(l10n.searchScreenTitle),
         actions: [
+          IconButton(
+            icon: const Icon(Icons.smart_toy_outlined),
+            tooltip: 'Journey Assistant',
+            onPressed: () => context.push('/assistant'),
+          ),
           Padding(
-            padding: const EdgeInsets.only(right: 16),
+            padding: const EdgeInsets.only(right: 12),
             child: Chip(
               avatar: const Icon(
                 Icons.offline_pin,
@@ -117,7 +183,60 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
-          // Station Selection Card
+          // 1. Active Service Advisory / Disruption Alert Banner
+          advisoriesAsync.when(
+            data: (advisories) {
+              if (advisories.isEmpty) return const SizedBox.shrink();
+              final adv = advisories.first;
+              return Container(
+                margin: const EdgeInsets.only(bottom: 16),
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.amber.withAlpha(30),
+                  borderRadius: BorderRadius.circular(12),
+                  border: Border.all(color: Colors.amber.shade700, width: 1.2),
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Icon(
+                      Icons.warning_amber_rounded,
+                      color: Colors.amber.shade800,
+                      size: 22,
+                    ),
+                    const SizedBox(width: 10),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            adv.localizedTitle(locale),
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 13,
+                              color: Colors.amber.shade900,
+                            ),
+                          ),
+                          const SizedBox(height: 4),
+                          Text(
+                            adv.localizedDescription(locale),
+                            style: theme.textTheme.bodySmall?.copyWith(
+                              fontSize: 12,
+                              color: Colors.black87,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              );
+            },
+            loading: () => const SizedBox.shrink(),
+            error: (error, stack) => const SizedBox.shrink(),
+          ),
+
+          // 2. Station Selection Card
           Card(
             elevation: 1,
             shape: RoundedRectangleBorder(
@@ -140,18 +259,27 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                     onTap: _selectOrigin,
                   ),
                   const Divider(height: 16),
-                  // Swap Stations Button
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: Semantics(
-                      button: true,
-                      label: l10n.swapStationsTooltip,
-                      child: IconButton.filledTonal(
-                        tooltip: l10n.swapStationsTooltip,
-                        icon: const Icon(Icons.swap_vert),
-                        onPressed: _swapStations,
+                  // Swap Stations Button & Save Journey action
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      IconButton.outlined(
+                        tooltip: 'Save to My Commutes',
+                        icon: const Icon(Icons.bookmark_add_outlined, size: 20),
+                        onPressed: _origin != null && _destination != null
+                            ? _saveCurrentJourney
+                            : null,
                       ),
-                    ),
+                      Semantics(
+                        button: true,
+                        label: l10n.swapStationsTooltip,
+                        child: IconButton.filledTonal(
+                          tooltip: l10n.swapStationsTooltip,
+                          icon: const Icon(Icons.swap_vert),
+                          onPressed: _swapStations,
+                        ),
+                      ),
+                    ],
                   ),
                   const Divider(height: 16),
                   // Destination Station Input Tile
@@ -168,8 +296,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 20),
-          // Action button
+          const SizedBox(height: 18),
+
+          // 3. Search Action button
           SizedBox(
             height: 52,
             child: ElevatedButton.icon(
@@ -186,8 +315,60 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               ),
             ),
           ),
-          const SizedBox(height: 28),
-          // Major Junction Stations Header
+          const SizedBox(height: 24),
+
+          // 4. Saved Journeys ("My Commutes")
+          savedJourneysAsync.when(
+            data: (savedList) {
+              if (savedList.isEmpty) return const SizedBox.shrink();
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'My Saved Commutes',
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      const Icon(Icons.star, size: 18, color: Colors.amber),
+                    ],
+                  ),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    height: 50,
+                    child: ListView.separated(
+                      scrollDirection: Axis.horizontal,
+                      itemCount: savedList.length,
+                      separatorBuilder: (context, index) =>
+                          const SizedBox(width: 8),
+                      itemBuilder: (context, i) {
+                        final j = savedList[i];
+                        return ActionChip(
+                          avatar: const Icon(
+                            Icons.directions_railway,
+                            size: 16,
+                          ),
+                          label: Text(j.label),
+                          onPressed: () => _loadRoute(
+                            j.originStationId,
+                            j.destinationStationId,
+                          ),
+                        );
+                      },
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                ],
+              );
+            },
+            loading: () => const SizedBox.shrink(),
+            error: (error, stack) => const SizedBox.shrink(),
+          ),
+
+          // 5. Major Junction Stations Header & Chips
           Text(
             l10n.majorJunctions,
             style: theme.textTheme.titleMedium?.copyWith(
@@ -195,7 +376,6 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
             ),
           ),
           const SizedBox(height: 12),
-          // Quick Access Popular Junctions Chips
           Wrap(
             spacing: 8,
             runSpacing: 8,
@@ -285,6 +465,60 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                 },
               ),
             ],
+          ),
+          const SizedBox(height: 24),
+
+          // 6. Recent Journey History
+          historyAsync.when(
+            data: (historyList) {
+              if (historyList.isEmpty) return const SizedBox.shrink();
+              return Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Recent Searches',
+                        style: theme.textTheme.titleMedium?.copyWith(
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      TextButton(
+                        onPressed: () {
+                          ref
+                              .read(savedJourneysRepositoryProvider)
+                              .clearJourneyHistory();
+                        },
+                        child: const Text(
+                          'Clear',
+                          style: TextStyle(fontSize: 12),
+                        ),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6),
+                  ...historyList.take(4).map((entry) {
+                    return ListTile(
+                      dense: true,
+                      contentPadding: EdgeInsets.zero,
+                      leading: const Icon(Icons.history, size: 20),
+                      title: Text(
+                        '${entry.originStationId.replaceFirst('ST_', '')} → ${entry.destinationStationId.replaceFirst('ST_', '')}',
+                        style: const TextStyle(fontWeight: FontWeight.w600),
+                      ),
+                      trailing: const Icon(Icons.chevron_right, size: 18),
+                      onTap: () => _loadRoute(
+                        entry.originStationId,
+                        entry.destinationStationId,
+                      ),
+                    );
+                  }),
+                ],
+              );
+            },
+            loading: () => const SizedBox.shrink(),
+            error: (error, stack) => const SizedBox.shrink(),
           ),
         ],
       ),

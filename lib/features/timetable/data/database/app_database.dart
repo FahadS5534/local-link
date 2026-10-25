@@ -8,13 +8,22 @@ import 'tables.dart';
 part 'app_database.g.dart';
 
 @DriftDatabase(
-  tables: [StationsTable, TripsTable, StopSchedulesTable, DatasetMetadataTable],
+  tables: [
+    StationsTable,
+    TripsTable,
+    StopSchedulesTable,
+    DatasetMetadataTable,
+    SavedJourneysTable,
+    JourneyHistoryTable,
+    ServiceAdvisoriesTable,
+    SyncHistoryTable,
+  ],
 )
 class AppDatabase extends _$AppDatabase {
   AppDatabase(super.e);
 
   @override
-  int get schemaVersion => 1;
+  int get schemaVersion => 2;
 
   @override
   MigrationStrategy get migration => MigrationStrategy(
@@ -30,6 +39,14 @@ class AppDatabase extends _$AppDatabase {
       await customStatement(
         'CREATE INDEX IF NOT EXISTS idx_stops_trip_seq ON stop_schedules(trip_id, stop_sequence);',
       );
+    },
+    onUpgrade: (Migrator m, int from, int to) async {
+      if (from < 2) {
+        await m.createTable(savedJourneysTable);
+        await m.createTable(journeyHistoryTable);
+        await m.createTable(serviceAdvisoriesTable);
+        await m.createTable(syncHistoryTable);
+      }
     },
   );
 

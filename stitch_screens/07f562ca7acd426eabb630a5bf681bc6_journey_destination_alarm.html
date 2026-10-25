@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+
+<html class="h-full" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" name="viewport"/><meta content="mobile_tab" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet"/><style>@layer base{html,body{width:100%;min-height:100%;margin:0;padding:0;}body{overscroll-behavior-y:none;-webkit-tap-highlight-color:transparent;}.pb-safe{padding-bottom:env(safe-area-inset-bottom,0px);}.pt-safe{padding-top:env(safe-area-inset-top,0px);}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = { darkMode: "class", theme: { extend: { "colors": { "on-surface-variant": "#43474e", "surface": "#f9f9ff", "secondary-container": "#fd6e60", "surface-container-high": "#dee8ff", "error-container": "#ffdad6", "tertiary-fixed": "#a6f3c4", "secondary-fixed": "#ffdad5", "outline": "#73777f", "surface-container-lowest": "#ffffff", "on-secondary-container": "#6d0005", "on-tertiary-fixed": "#002111", "surface-dim": "#ccdbf8", "primary-fixed": "#d2e4ff", "surface-container-highest": "#d5e3ff", "primary-container": "#244a73", "on-primary-fixed": "#001c37", "surface-tint": "#3c608b", "on-secondary": "#ffffff", "secondary": "#ac332b", "on-secondary-fixed-variant": "#8a1a16", "error": "#ba1a1a", "on-primary": "#ffffff", "on-tertiary-fixed-variant": "#005231", "outline-variant": "#c3c6cf", "primary": "#04335b", "tertiary-container": "#005433", "inverse-surface": "#223147", "on-tertiary": "#ffffff", "on-surface": "#0c1c31", "on-tertiary-container": "#7cc89b", "tertiary-fixed-dim": "#8ad7a9", "on-primary-fixed-variant": "#224871", "on-error-container": "#93000a", "tertiary": "#003b22", "on-error": "#ffffff", "on-secondary-fixed": "#410002", "on-background": "#0c1c31", "surface-container": "#e7eeff", "inverse-on-surface": "#ebf1ff", "background": "#f9f9ff", "surface-container-low": "#f0f3ff", "on-primary-container": "#96bae9", "secondary-fixed-dim": "#ffb4ab", "surface-bright": "#f9f9ff", "inverse-primary": "#a5c9f9", "surface-variant": "#d5e3ff", "primary-fixed-dim": "#a5c9f9" }, "borderRadius": { "DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem" }, "spacing": { "space-lg": "1rem", "space-2xl": "2rem", "margin": "1rem", "space-xl": "1.5rem", "space-sm": "0.5rem", "space-xxs": "0.125rem", "space-xs": "0.25rem", "gutter-tablet": "1rem", "margin-tablet": "1.5rem", "space-md": "0.75rem", "gutter": "0.75rem" }, "fontFamily": { "body-lg": ["Inter"], "title-md": ["Inter"], "tabular-time-lg": ["Inter"], "body-sm": ["Inter"], "title-sm": ["Inter"], "label-sm": ["Inter"], "headline-lg": ["Inter"], "body-md": ["Inter"], "label-md": ["Inter"], "display-lg": ["Inter"], "headline-md": ["Inter"], "tabular-time-md": ["Inter"], "headline-sm": ["Inter"] }, "fontSize": { "body-lg": ["16px", { "lineHeight": "24px", "fontWeight": "400" }], "title-md": ["15px", { "lineHeight": "20px", "fontWeight": "600" }], "tabular-time-lg": ["28px", { "lineHeight": "32px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "body-sm": ["12px", { "lineHeight": "16px", "fontWeight": "400" }], "title-sm": ["13px", { "lineHeight": "18px", "fontWeight": "600" }], "label-sm": ["11px", { "lineHeight": "14px", "letterSpacing": "0.03em", "fontWeight": "500" }], "headline-lg": ["24px", { "lineHeight": "30px", "letterSpacing": "-0.015em", "fontWeight": "700" }], "body-md": ["14px", { "lineHeight": "20px", "fontWeight": "400" }], "label-md": ["12px", { "lineHeight": "16px", "letterSpacing": "0.02em", "fontWeight": "600" }], "display-lg": ["32px", { "lineHeight": "38px", "letterSpacing": "-0.02em", "fontWeight": "700" }], "headline-md": ["20px", { "lineHeight": "26px", "letterSpacing": "-0.01em", "fontWeight": "600" }], "tabular-time-md": ["18px", { "lineHeight": "22px", "fontWeight": "600" }], "headline-sm": ["17px", { "lineHeight": "22px", "letterSpacing": "-0.005em", "fontWeight": "600" }] } } } }</script><style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head><body class="bg-surface font-body-md text-on-surface antialiased flex flex-col min-h-screen"><header class="fixed top-0 inset-x-0 z-50 bg-surface/95 backdrop-blur-xl pt-safe shadow-[0_1px_8px_rgba(0,0,0,0.04)]"><div class="h-16 px-margin flex items-center justify-between max-w-lg mx-auto w-full"><div class="flex items-center gap-space-sm"><div class="flex items-center justify-center w-10 h-10 rounded-lg bg-primary text-on-primary"><span class="material-symbols-outlined text-[22px]">directions_subway</span></div><div class="flex flex-col"><div class="flex items-baseline gap-space-xs"><span class="font-headline-sm text-headline-sm text-primary tracking-tight font-bold">LocalLink</span><span class="font-label-sm text-label-sm text-secondary font-semibold">मुंबई लोकल</span></div><div class="flex items-center gap-1"><span class="material-symbols-outlined text-tertiary-container text-[12px]">check_circle</span><span class="font-label-sm text-label-sm text-on-surface-variant">Offline • Today 04:30 AM</span></div></div></div><div class="flex items-center gap-space-xs"><span class="font-title-sm text-title-sm text-on-surface-variant hidden">Live Journey</span><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida/AEtjO1WCraSSuOOIYUIwN6LQsFfcvXCzMa04fbpPIss7Cb0YLRck82gAGwwEpqtuvz6O4W9ckrQ1-M9hlUNatYVhgni1JYaAK9Vkf6kT5dEKFbwFTcKlpBJPAWNUTQoju7iFuDhw8SlorHmH2sra9CTwsTtBYk9AwqxNi1XCzP0uKM-NvebcBSG9k1F2xlJS1eL6OqtPBcB7imsetvE8S4jKr4_JyAQ8-bmNw0n1x1eHxtJPialLlWRHt6TZbz4"/><button aria-label="Settings and information" class="w-11 h-11 flex items-center justify-center rounded-lg text-on-surface-variant hover:text-on-surface transition-colors" type="button"><span class="material-symbols-outlined text-[20px]">tune</span></button></div></div></header><main class="flex-1 flex flex-col relative w-full pt-16 pb-24 max-w-lg mx-auto bg-surface"><div class="flex flex-col w-full px-margin space-y-space-md">
+<!-- Active Train Live Ribbon / Header Card -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="absolute left-0 top-0 bottom-0 w-1.5 bg-secondary"></div>
+<div class="flex items-start justify-between gap-space-sm pl-space-xs">
+<div class="flex-1 min-w-0">
+<div class="flex items-center gap-space-xs mb-1">
+<span class="bg-secondary-fixed text-on-secondary-fixed-variant px-1.5 py-0.5 rounded text-[10px] font-title-sm uppercase tracking-wide">WR Fast</span>
+<span class="bg-surface-container-high text-primary px-1.5 py-0.5 rounded text-[10px] font-title-sm">15 Car</span>
+<span class="inline-flex items-center gap-1 text-[11px] font-label-sm text-tertiary font-medium">
+<span class="w-2 h-2 rounded-full bg-tertiary-fixed-dim animate-pulse"></span> Live GPS
+          </span>
+</div>
+<h1 class="font-headline-sm text-headline-sm text-on-surface truncate">Virar → Churchgate</h1>
+<p class="font-body-sm text-body-sm text-on-surface-variant flex items-center gap-1 mt-0.5">
+<span>Currently approaching:</span>
+<strong class="text-on-surface font-title-sm">Bandra (BA)</strong>
+</p>
+</div>
+<!-- Live Speed & ETA badge -->
+<div class="flex flex-col items-end shrink-0">
+<span class="font-tabular-time-lg text-tabular-time-lg text-secondary leading-none">03<span class="text-xs font-normal ml-0.5">m</span></span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-1">to Bandra PF 4</span>
+</div>
+</div>
+<!-- Live metrics strip -->
+<div class="grid grid-cols-3 gap-space-xs mt-space-md pt-space-xs bg-surface-container-low rounded-lg p-2 text-center">
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Next Stop</span>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">in 3 mins</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Remaining</span>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">3 stops</span>
+</div>
+<div class="flex flex-col">
+<span class="font-label-sm text-label-sm text-on-surface-variant">Dest. ETA</span>
+<span class="font-title-sm text-title-sm text-secondary font-semibold">09:30 AM</span>
+</div>
+</div>
+</div>
+<!-- Destination Alarm System Card (Section 8 Safe Commute) -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm relative overflow-hidden">
+<div class="flex items-center justify-between pb-space-xs">
+<div class="flex items-center gap-2">
+<div class="relative flex items-center justify-center w-7 h-7 rounded-full bg-secondary/10 text-secondary">
+<span class="material-symbols-outlined text-[18px]">notifications_active</span>
+<span class="absolute -top-0.5 -right-0.5 flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-secondary"></span>
+</span>
+</div>
+<div>
+<h2 class="font-title-sm text-title-sm text-on-surface">Destination Alarm ACTIVE</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Target: <span class="font-semibold text-secondary">Churchgate (CCG)</span></p>
+</div>
+</div>
+<span class="bg-tertiary-fixed text-on-tertiary-fixed px-2 py-0.5 rounded-full text-[10px] font-title-sm">ARMED</span>
+</div>
+<!-- Alert Configuration Specs -->
+<div class="mt-2.5 space-y-2 bg-surface-container-low rounded-lg p-space-sm text-on-surface">
+<div class="flex items-center justify-between text-body-sm">
+<div class="flex items-center gap-1.5 text-on-surface">
+<span class="material-symbols-outlined text-[16px] text-secondary">alarm_on</span>
+<span class="font-body-sm">Trigger proximity:</span>
+</div>
+<span class="font-title-sm text-on-surface text-right">Marine Lines (1 stop prior)</span>
+</div>
+<div class="flex items-center justify-between text-body-sm">
+<div class="flex items-center gap-1.5 text-on-surface-variant">
+<span class="material-symbols-outlined text-[16px] text-tertiary">my_location</span>
+<span class="font-label-sm">Location Accuracy:</span>
+</div>
+<span class="font-label-sm text-tertiary font-semibold">High Accuracy (±14m)</span>
+</div>
+<!-- Toggle earphone alert -->
+<div class="flex items-center justify-between pt-1">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px] text-primary">headphones</span>
+<span class="font-body-sm text-on-surface">Vibrate & Earphone Chime</span>
+</div>
+<button aria-pressed="true" class="w-10 h-5 bg-primary rounded-full relative p-0.5 transition-colors cursor-pointer" id="alarmToggle" type="button">
+<span class="block w-4 h-4 bg-surface-container-lowest rounded-full transform translate-x-5 transition-transform" id="alarmToggleKnob"></span>
+</button>
+</div>
+</div>
+</div>
+<!-- Carriage Coach Composition Guide (15-Car Local) -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between mb-space-xs">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px] text-primary">view_carousel</span>
+<h2 class="font-title-sm text-title-sm text-on-surface">Coach Composition (15-Car)</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">You: C8 (Gen)</span>
+</div>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-space-sm">Aligns perfectly with Dadar Center Foot Over Bridge (FOB)</p>
+<!-- Interactive Horizontal Train Rake Visualizer -->
+<div class="relative overflow-x-auto pb-2 pt-1 no-scrollbar flex items-center gap-1">
+<!-- Front Engine -->
+<div class="shrink-0 flex flex-col items-center justify-center w-8 h-10 bg-primary-container text-on-primary-container rounded-l-lg text-[9px] font-title-sm font-bold">
+<span>ENG</span>
+</div>
+<!-- Coaches: 1 to 15 -->
+<!-- 1 Ladies -->
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-secondary-fixed text-on-secondary-fixed-variant rounded text-[9px] font-bold" title="Ladies Coach">
+<span>C1</span>
+<span class="text-[8px] font-normal">L</span>
+</div>
+<!-- 2 General -->
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-surface-container-high text-on-surface rounded text-[9px] font-medium">
+<span>C2</span>
+<span class="text-[8px] text-on-surface-variant">II</span>
+</div>
+<!-- 3 First Class -->
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-error-container text-on-error-container rounded text-[9px] font-bold">
+<span>C3</span>
+<span class="text-[8px] font-semibold">I</span>
+</div>
+<!-- 4 Divyangjan / Luggage -->
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-surface-container text-on-surface rounded text-[9px]">
+<span>C4</span>
+<span class="text-[8px]">D</span>
+</div>
+<!-- 5-7 General -->
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-surface-container-high text-on-surface rounded text-[9px]"><span>C5</span></div>
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-surface-container-high text-on-surface rounded text-[9px]"><span>C6</span></div>
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-secondary-fixed text-on-secondary-fixed-variant rounded text-[9px] font-bold">
+<span>C7</span>
+<span class="text-[8px]">L</span>
+</div>
+<!-- Current Coach C8 Active Highlighting -->
+<div class="shrink-0 relative flex flex-col items-center justify-center w-8 h-11 bg-primary text-on-primary rounded font-bold shadow-md scale-105 z-10">
+<span class="text-[9px]">C8</span>
+<span class="text-[8px] text-on-primary-container">YOU</span>
+<span class="absolute -bottom-2 w-1.5 h-1.5 bg-secondary rotate-45"></span>
+</div>
+<!-- 9-15 Coaches -->
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-error-container text-on-error-container rounded text-[9px] font-bold">
+<span>C9</span>
+<span class="text-[8px]">I</span>
+</div>
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-surface-container-high text-on-surface rounded text-[9px]"><span>C10</span></div>
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-surface-container-high text-on-surface rounded text-[9px]"><span>C11</span></div>
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-secondary-fixed text-on-secondary-fixed-variant rounded text-[9px] font-bold">
+<span>C12</span>
+<span class="text-[8px]">L</span>
+</div>
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-surface-container-high text-on-surface rounded text-[9px]"><span>C13</span></div>
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-surface-container-high text-on-surface rounded text-[9px]"><span>C14</span></div>
+<div class="shrink-0 flex flex-col items-center justify-center w-7 h-10 bg-surface-container text-on-surface rounded-r-lg text-[9px]">
+<span>C15</span>
+<span class="text-[8px]">D</span>
+</div>
+</div>
+<!-- Coach Legend & Dadar FOB Advice -->
+<div class="flex flex-wrap items-center justify-between gap-y-1 gap-x-2 pt-2 text-[10px] text-on-surface-variant font-label-sm">
+<span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-secondary-fixed"></span> Ladies (L)</span>
+<span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-error-container"></span> First Class (I)</span>
+<span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-surface-container-high"></span> General (II)</span>
+<span class="inline-flex items-center gap-1"><span class="w-2.5 h-2.5 rounded-sm bg-surface-container"></span> Divyang (D)</span>
+</div>
+</div>
+<!-- Vertical Railway Station Timeline -->
+<div class="w-full bg-surface-container-lowest rounded-xl p-space-md shadow-sm">
+<div class="flex items-center justify-between pb-space-sm mb-space-sm bg-surface-container-low rounded-lg p-2.5">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-[20px] text-primary">route</span>
+<div>
+<h2 class="font-title-sm text-title-sm text-on-surface">Station Stop Timeline</h2>
+<p class="font-label-sm text-label-sm text-on-surface-variant">Live Western Line tracking</p>
+</div>
+</div>
+<span class="font-tabular-time-md text-tabular-time-md text-primary font-bold">14 Stn Dist.</span>
+</div>
+<!-- Timeline Tree -->
+<div class="relative pl-6 space-y-5">
+<!-- Continuous Background Track Line -->
+<div class="absolute left-2.5 top-3 bottom-5 w-0.5 bg-surface-container-highest"></div>
+<!-- Stop 1: Borivali (Past) -->
+<div class="relative flex items-start justify-between opacity-60">
+<div class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-surface-container-lowest text-[10px]">check</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface line-through">Borivali</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">बोरीवली (BVI)</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Origin • Departed 08:42 AM</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">PF 5</span>
+</div>
+<!-- Stop 2: Andheri (Past) -->
+<div class="relative flex items-start justify-between opacity-60">
+<div class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-outline-variant flex items-center justify-center">
+<span class="material-symbols-outlined text-surface-container-lowest text-[10px]">check</span>
+</div>
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface line-through">Andheri</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">अंधेरी (ADH)</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Departed 09:02 AM</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">PF 6</span>
+</div>
+<!-- Stop 3: Bandra (ACTIVE / CURRENT) -->
+<div class="relative flex flex-col bg-surface-container-high/40 rounded-lg p-2.5 -ml-2 pl-4">
+<div class="absolute -left-4 top-3.5 w-4 h-4 rounded-full bg-secondary flex items-center justify-center shadow-md">
+<span class="w-1.5 h-1.5 rounded-full bg-surface-container-lowest"></span>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold">Bandra</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">वांद्रे (BA)</span>
+<span class="bg-secondary text-on-secondary px-1.5 py-0.2 rounded text-[10px] font-title-sm font-semibold uppercase">NEXT</span>
+</div>
+<p class="font-body-sm text-body-sm text-primary font-medium mt-0.5">Arriving in ~2 mins (09:14 AM)</p>
+</div>
+<span class="bg-primary text-on-primary px-2 py-0.5 rounded text-title-sm font-bold">PF 4</span>
+</div>
+<!-- Live Crowd Alert at Bandra -->
+<div class="mt-2 flex items-center gap-1.5 bg-secondary-fixed text-on-secondary-fixed-variant px-2 py-1 rounded text-body-sm">
+<span class="material-symbols-outlined text-[15px] text-secondary">groups</span>
+<span class="font-title-sm text-[11px]">Crowd Alert:</span>
+<span class="font-body-sm text-[11px]">Heavy boarding on East side footbridge</span>
+</div>
+</div>
+<!-- Stop 4: Dadar (Upcoming Interchange) -->
+<div class="relative flex items-start justify-between">
+<div class="absolute -left-6 top-1.5 w-3.5 h-3.5 rounded-full bg-surface-container-lowest ring-2 ring-primary"></div>
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Dadar</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">दादर (DDR)</span>
+</div>
+<div class="flex items-center gap-1.5 mt-0.5">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Scheduled 09:20 AM</span>
+<span class="bg-surface-container-high text-primary px-1.5 py-0.2 rounded text-[10px] font-title-sm">Central Line X</span>
+</div>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface font-semibold bg-surface-container-low px-1.5 py-0.5 rounded">PF 3</span>
+</div>
+<!-- Stop 5: Mumbai Central (Upcoming) -->
+<div class="relative flex items-start justify-between">
+<div class="absolute -left-6 top-1.5 w-3.5 h-3.5 rounded-full bg-surface-container-lowest ring-2 ring-outline-variant"></div>
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface font-medium">Mumbai Central</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">मुंबई सेंट्रल (MMCT)</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Scheduled 09:25 AM</span>
+</div>
+<span class="font-title-sm text-title-sm text-on-surface-variant bg-surface-container-low px-1.5 py-0.5 rounded">PF 2</span>
+</div>
+<!-- Stop 6: Marine Lines (Alarm Wake Trigger Station) -->
+<div class="relative flex flex-col bg-surface-container-low/70 rounded-lg p-2 -ml-2 pl-4">
+<div class="absolute -left-4 top-2.5 w-4 h-4 rounded-full bg-tertiary-container text-on-tertiary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-[11px]">notifications</span>
+</div>
+<div class="flex items-start justify-between">
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-title-sm text-title-sm text-on-surface font-semibold">Marine Lines</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">मरीन लाईन्स (MEL)</span>
+</div>
+<div class="flex items-center gap-1 mt-0.5 text-secondary">
+<span class="material-symbols-outlined text-[13px]">alarm</span>
+<span class="font-label-sm text-[11px] font-semibold">Alarm Trigger Point (09:28 AM)</span>
+</div>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant bg-surface-container px-1.5 py-0.5 rounded">PF 1</span>
+</div>
+</div>
+<!-- Stop 7: Churchgate (Terminus / Destination) -->
+<div class="relative flex items-start justify-between pt-1">
+<div class="absolute -left-6 top-2 w-4 h-4 rounded-full bg-secondary flex items-center justify-center shadow">
+<span class="w-1.5 h-1.5 rounded-full bg-on-secondary"></span>
+</div>
+<div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-title-md text-title-md text-on-surface font-bold">Churchgate</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">चर्चगेट (CCG)</span>
+</div>
+<p class="font-body-sm text-body-sm text-secondary font-semibold">Final Terminus • Arr. 09:30 AM</p>
+</div>
+<div class="flex flex-col items-end">
+<span class="bg-secondary text-on-secondary px-2 py-0.5 rounded text-title-sm font-bold">PF 2</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant mt-0.5">Left Side Exit</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Commuter Quick Action Toolbar -->
+<div class="w-full flex items-center gap-space-sm pt-space-xs pb-space-md">
+<button class="flex-1 min-h-[48px] bg-primary text-on-primary rounded-lg px-space-sm py-2 font-title-sm flex items-center justify-center gap-2 shadow-sm active:bg-primary-container transition-colors" id="shareStatusBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">share</span>
+<span>Share Live Status</span>
+</button>
+<button class="flex-1 min-h-[48px] bg-surface-container-lowest text-secondary rounded-lg px-space-sm py-2 font-title-sm flex items-center justify-center gap-2 shadow-sm active:bg-surface-container-high transition-colors" id="reportCrowdBtn" type="button">
+<span class="material-symbols-outlined text-[18px]">campaign</span>
+<span>Report Platform Crowd</span>
+</button>
+</div>
+<!-- Interactive Feedback Toast (DOM dynamic container) -->
+<div class="fixed bottom-20 inset-x-4 max-w-sm mx-auto bg-inverse-surface text-inverse-on-surface px-4 py-3 rounded-lg shadow-xl flex items-center justify-between gap-2 transform translate-y-24 opacity-0 transition-all duration-300 z-50 pointer-events-none" id="liveToast">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-tertiary-fixed-dim text-[18px]" id="toastIcon">check_circle</span>
+<span class="font-body-sm text-body-sm" id="toastMsg">Location synced with Railway GPS</span>
+</div>
+<button class="text-inverse-on-surface/70 hover:text-inverse-on-surface font-title-sm text-xs" onclick="hideToast()" type="button">Dismiss</button>
+</div>
+</div>
+<script>
+  // Destination Alarm Toggle Interaction
+  const alarmBtn = document.getElementById('alarmToggle');
+  const alarmKnob = document.getElementById('alarmToggleKnob');
+  let isAlarmOn = true;
+
+  if (alarmBtn && alarmKnob) {
+    alarmBtn.addEventListener('click', () => {
+      isAlarmOn = !isAlarmOn;
+      alarmBtn.setAttribute('aria-pressed', isAlarmOn.toString());
+      if (isAlarmOn) {
+        alarmBtn.classList.remove('bg-outline');
+        alarmBtn.classList.add('bg-primary');
+        alarmKnob.classList.remove('translate-x-0.5');
+        alarmKnob.classList.add('translate-x-5');
+        showToast('Alarm sound & vibration active on earphones', 'notifications_active');
+      } else {
+        alarmBtn.classList.remove('bg-primary');
+        alarmBtn.classList.add('bg-outline');
+        alarmKnob.classList.remove('translate-x-5');
+        alarmKnob.classList.add('translate-x-0.5');
+        showToast('Alarm silenced. Notifications visual only.', 'notifications_off');
+      }
+    });
+  }
+
+  // Toast Trigger Helper
+  function showToast(message, icon = 'check_circle') {
+    const toast = document.getElementById('liveToast');
+    const toastMsg = document.getElementById('toastMsg');
+    const toastIcon = document.getElementById('toastIcon');
+    if (!toast || !toastMsg || !toastIcon) return;
+
+    toastMsg.textContent = message;
+    toastIcon.textContent = icon;
+    toast.classList.remove('translate-y-24', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+
+    setTimeout(() => {
+      hideToast();
+    }, 3200);
+  }
+
+  function hideToast() {
+    const toast = document.getElementById('liveToast');
+    if (!toast) return;
+    toast.classList.remove('translate-y-0', 'opacity-100');
+    toast.classList.add('translate-y-24', 'opacity-0');
+  }
+
+  // WhatsApp / SMS Share Action
+  const shareBtn = document.getElementById('shareStatusBtn');
+  if (shareBtn) {
+    shareBtn.addEventListener('click', () => {
+      const shareData = {
+        title: 'My Mumbai Local Tracking',
+        text: 'Tracking Virar-Churchgate Fast. Approaching Bandra PF4. Scheduled Churchgate arrival 09:30 AM via LocalLink.',
+      };
+      if (navigator.share) {
+        navigator.share(shareData).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(shareData.text).then(() => {
+          showToast('Live journey status copied to clipboard!', 'content_copy');
+        }).catch(() => {
+          showToast('Status link ready to forward', 'share');
+        });
+      }
+    });
+  }
+
+  // Crowd Reporting Interaction
+  const reportBtn = document.getElementById('reportCrowdBtn');
+  if (reportBtn) {
+    reportBtn.addEventListener('click', () => {
+      showToast('Crowd report sent for Bandra PF 4. Thank you!', 'volunteer_activism');
+    });
+  }
+</script></main><nav class="fixed bottom-0 inset-x-0 z-50 pb-safe bg-surface/95 backdrop-blur-xl shadow-[0_-2px_8px_rgba(0,0,0,0.04)]" data-active-classes="text-primary font-title-sm bg-surface-container-high/60"><div class="flex justify-around items-center h-16 max-w-lg mx-auto px-space-xs"><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center rounded-lg text-on-surface-variant py-1 transition-colors hover:text-on-surface" data-path="home" href="#"><span class="material-symbols-outlined text-[22px]">train</span><span class="font-label-sm text-label-sm leading-tight mt-0.5">शोधा / Home</span></a><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center rounded-lg text-on-surface-variant py-1 transition-colors hover:text-on-surface" data-path="search-and-schedule" href="#"><span class="material-symbols-outlined text-[22px]">schedule</span><span class="font-label-sm text-label-sm leading-tight mt-0.5">वेळापत्रक / Search</span></a><a aria-current="page" class="flex-1 min-h-[48px] flex flex-col items-center justify-center rounded-lg py-1 transition-colors text-primary font-title-sm bg-surface-container-high/60" data-path="live-journey" href="#"><span class="material-symbols-outlined text-[22px]">navigation</span><span class="font-label-sm text-label-sm leading-tight mt-0.5">प्रवास / Live</span></a><a class="flex-1 min-h-[48px] flex flex-col items-center justify-center rounded-lg text-on-surface-variant py-1 transition-colors hover:text-on-surface" data-path="network-map" href="#"><span class="material-symbols-outlined text-[22px]">map</span><span class="font-label-sm text-label-sm leading-tight mt-0.5">नकाशा / Network</span></a></div></nav></body></html>
