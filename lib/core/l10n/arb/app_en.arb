@@ -1,0 +1,322 @@
+{
+  "@@locale": "en",
+  "appTitle": "LocalLink",
+  "@appTitle": {
+    "description": "The title of the application"
+  },
+  "appTagline": "Mumbai Local Train Companion",
+  "@appTagline": {
+    "description": "The subtitle/tagline of the application"
+  },
+  "navSearch": "Search",
+  "@navSearch": {
+    "description": "Bottom navigation label for search screen"
+  },
+  "navLines": "Lines",
+  "@navLines": {
+    "description": "Bottom navigation label for lines screen"
+  },
+  "navAlerts": "Alerts",
+  "@navAlerts": {
+    "description": "Bottom navigation label for alerts screen"
+  },
+  "navSettings": "Settings",
+  "@navSettings": {
+    "description": "Bottom navigation label for settings screen"
+  },
+  "searchScreenTitle": "Find Trains",
+  "@searchScreenTitle": {
+    "description": "Title of the search and route finder screen"
+  },
+  "searchButtonLabel": "Search Routes",
+  "@searchButtonLabel": {
+    "description": "Label for search action button"
+  },
+  "originPlaceholder": "Select Origin Station",
+  "@originPlaceholder": {
+    "description": "Placeholder for origin station selector"
+  },
+  "destinationPlaceholder": "Select Destination Station",
+  "@destinationPlaceholder": {
+    "description": "Placeholder for destination station selector"
+  },
+  "swapStationsTooltip": "Swap Origin and Destination",
+  "@swapStationsTooltip": {
+    "description": "Accessibility tooltip for swapping stations"
+  },
+  "linesScreenTitle": "Suburban Corridors",
+  "@linesScreenTitle": {
+    "description": "Title for the lines screen"
+  },
+  "westernLineTitle": "Western Line",
+  "@westernLineTitle": {
+    "description": "Name of the Western railway line"
+  },
+  "centralLineTitle": "Central Line (Main)",
+  "@centralLineTitle": {
+    "description": "Name of the Central railway line"
+  },
+  "harbourLineTitle": "Harbour Line",
+  "@harbourLineTitle": {
+    "description": "Name of the Harbour railway line"
+  },
+  "transHarbourLineTitle": "Trans-Harbour Line",
+  "@transHarbourLineTitle": {
+    "description": "Name of the Trans-Harbour line"
+  },
+  "alertsScreenTitle": "Station Alarms",
+  "@alertsScreenTitle": {
+    "description": "Title for the station proximity alerts screen"
+  },
+  "noActiveAlerts": "No active alarms",
+  "@noActiveAlerts": {
+    "description": "Empty state label for alerts"
+  },
+  "alertsDescription": "Set an alarm for your destination station to alert you before your stop.",
+  "@alertsDescription": {
+    "description": "Description of proximity alarms"
+  },
+  "settingsScreenTitle": "Preferences",
+  "@settingsScreenTitle": {
+    "description": "Title for the settings screen"
+  },
+  "languageSetting": "App Language",
+  "@languageSetting": {
+    "description": "Setting label for language"
+  },
+  "english": "English",
+  "@english": {
+    "description": "Language name for English"
+  },
+  "hindi": "हिन्दी (Hindi)",
+  "@hindi": {
+    "description": "Language name for Hindi"
+  },
+  "marathi": "मराठी (Marathi)",
+  "@marathi": {
+    "description": "Language name for Marathi"
+  },
+  "themeSetting": "Theme Appearance",
+  "@themeSetting": {
+    "description": "Setting label for theme mode"
+  },
+  "themeSystem": "System Default",
+  "@themeSystem": {
+    "description": "System theme option"
+  },
+  "themeLight": "Light Mode",
+  "@themeLight": {
+    "description": "Light theme option"
+  },
+  "themeDark": "Dark Mode",
+  "@themeDark": {
+    "description": "Dark theme option"
+  },
+  "aboutTitle": "About LocalLink",
+  "@aboutTitle": {
+    "description": "Label for about app section"
+  },
+  "offlineBadge": "100% Offline Ready",
+  "@offlineBadge": {
+    "description": "Badge showing app operates offline"
+  },
+  "versionLabel": "Version",
+  "@versionLabel": {
+    "description": "Version label"
+  },
+  "stationSearchPlaceholder": "Search by name or code...",
+  "@stationSearchPlaceholder": {
+    "description": "Placeholder for station search input"
+  },
+  "fastTrainBadge": "FAST",
+  "@fastTrainBadge": {
+    "description": "Badge for fast service trains"
+  },
+  "slowTrainBadge": "SLOW",
+  "@slowTrainBadge": {
+    "description": "Badge for slow service trains"
+  },
+  "directRouteBadge": "Direct",
+  "@directRouteBadge": {
+    "description": "Badge for direct route"
+  },
+  "transferRouteBadge": "Transfer",
+  "@transferRouteBadge": {
+    "description": "Badge for transfer route"
+  },
+  "transferAt": "Transfer at {station}",
+  "@transferAt": {
+    "description": "Transfer station indication",
+    "placeholders": {
+      "station": { "type": "String" }
+    }
+  },
+  "stopsCount": "{count} stops",
+  "@stopsCount": {
+    "description": "Number of stops",
+    "placeholders": {
+      "count": { "type": "int" }
+    }
+  },
+  "durationFormat": "{minutes} min",
+  "@durationFormat": {
+    "description": "Duration in minutes",
+    "placeholders": {
+      "minutes": { "type": "int" }
+    }
+  },
+  "platformLabel": "Platform {platform}",
+  "@platformLabel": {
+    "description": "Platform indicator",
+    "placeholders": {
+      "platform": { "type": "String" }
+    }
+  },
+  "viewIntermediateStops": "View All Stops",
+  "@viewIntermediateStops": {
+    "description": "Button to expand intermediate stops"
+  },
+  "hideIntermediateStops": "Hide Stops",
+  "@hideIntermediateStops": {
+    "description": "Button to hide intermediate stops"
+  },
+  "skippedStation": "Skipped",
+  "@skippedStation": {
+    "description": "Label for skipped station on fast train"
+  },
+  "noTrainsFound": "No trains scheduled for this route",
+  "@noTrainsFound": {
+    "description": "Empty state when no trains are found"
+  },
+  "filterAll": "All",
+  "@filterAll": {
+    "description": "Filter tab for all trains"
+  },
+  "filterFast": "Fast",
+  "@filterFast": {
+    "description": "Filter tab for fast trains"
+  },
+  "filterSlow": "Slow",
+  "@filterSlow": {
+    "description": "Filter tab for slow trains"
+  },
+  "selectStationTitle": "Select Station",
+  "@selectStationTitle": {
+    "description": "Dialog title for station selection"
+  },
+  "majorJunctions": "Major Junction Stations",
+  "@majorJunctions": {
+    "description": "Title for major junction quick chips"
+  },
+  "crowdReportTitle": "Coach Crowding",
+  "@crowdReportTitle": {
+    "description": "Title for coach crowding card"
+  },
+  "reportCrowdButton": "Report Crowding",
+  "@reportCrowdButton": {
+    "description": "Button to report coach crowding"
+  },
+  "crowdDisclaimer": "Crowdsourced commuter estimate • Not an official railway feed",
+  "@crowdDisclaimer": {
+    "description": "Disclaimer for community crowd reports"
+  },
+  "coachSecondClass": "Second Class",
+  "@coachSecondClass": {
+    "description": "Second class coach"
+  },
+  "coachFirstClass": "First Class",
+  "@coachFirstClass": {
+    "description": "First class coach"
+  },
+  "coachLadies": "Ladies",
+  "@coachLadies": {
+    "description": "Ladies coach"
+  },
+  "coachDivyang": "Divyang",
+  "@coachDivyang": {
+    "description": "Accessible coach"
+  },
+  "densityLow": "Seats Available",
+  "@densityLow": {
+    "description": "Low crowding level"
+  },
+  "densityMedium": "Standing Room",
+  "@densityMedium": {
+    "description": "Medium crowding level"
+  },
+  "densityHeavy": "Packed",
+  "@densityHeavy": {
+    "description": "Heavy crowding level"
+  },
+  "densitySuperDense": "Super-Dense",
+  "@densitySuperDense": {
+    "description": "Super-dense crowding level"
+  },
+  "freshBadge": "Fresh",
+  "@freshBadge": {
+    "description": "Fresh report badge"
+  },
+  "expiringBadge": "Expiring",
+  "@expiringBadge": {
+    "description": "Expiring report badge"
+  },
+  "submitReport": "Submit Report",
+  "@submitReport": {
+    "description": "Action button to submit crowd report"
+  },
+  "reportSuccess": "Thank you for helping fellow commuters!",
+  "@reportSuccess": {
+    "description": "Success message after reporting crowding"
+  },
+  "setStationAlert": "Set Station Alarm",
+  "@setStationAlert": {
+    "description": "Title for setting station proximity alarm"
+  },
+  "addAlert": "Add Alarm",
+  "@addAlert": {
+    "description": "Button to add a new alarm"
+  },
+  "deleteAlert": "Delete Alarm",
+  "@deleteAlert": {
+    "description": "Button to delete an alarm"
+  },
+  "alertRadius": "Alarm Distance",
+  "@alertRadius": {
+    "description": "Label for alarm distance radius"
+  },
+  "radius500m": "500 meters",
+  "@radius500m": {
+    "description": "500 meter radius"
+  },
+  "radius1000m": "1 kilometer",
+  "@radius1000m": {
+    "description": "1 kilometer radius"
+  },
+  "radius2000m": "2 kilometers",
+  "@radius2000m": {
+    "description": "2 kilometers radius"
+  },
+  "alertTriggered": "Arriving at {station}!",
+  "@alertTriggered": {
+    "description": "Message when proximity alarm triggers",
+    "placeholders": {
+      "station": { "type": "String" }
+    }
+  },
+  "alertActive": "Active",
+  "@alertActive": {
+    "description": "Active status label"
+  },
+  "alertMuted": "Muted",
+  "@alertMuted": {
+    "description": "Muted status label"
+  },
+  "alertCreatedSuccess": "Station alarm set successfully",
+  "@alertCreatedSuccess": {
+    "description": "Snackbar message when alarm is created"
+  },
+  "alertDeletedSuccess": "Alarm removed",
+  "@alertDeletedSuccess": {
+    "description": "Snackbar message when alarm is deleted"
+  }
+}
