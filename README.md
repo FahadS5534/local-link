@@ -3,11 +3,49 @@
 [![Flutter](https://img.shields.io/badge/Flutter-3.38.9-02569B?logo=flutter)](https://flutter.dev)
 [![Dart](https://img.shields.io/badge/Dart-3.10.8-0175C2?logo=dart)](https://dart.dev)
 [![Architecture](https://img.shields.io/badge/Architecture-Clean%20%2B%20Offline--First-green.svg)](#-architecture-overview)
-[![Tests](https://img.shields.io/badge/Tests-68%2F68%20Passing-brightgreen.svg)](#-testing-strategy--quality-gates)
+[![Tests](https://img.shields.io/badge/Tests-88%2F88%20Passing-brightgreen.svg)](#-testing-strategy--quality-gates)
 [![Analysis](https://img.shields.io/badge/Analysis-0%20Issues-brightgreen.svg)](#-testing-strategy--quality-gates)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
 **LocalLink** is a production-grade, offline-first Mumbai Suburban Railway companion application built with Flutter. Designed to serve over 7.5 million daily commuters navigating the busiest suburban rail network in the world, LocalLink operates with zero network dependency for timetable search and routing, while seamlessly supporting real-time crowdsourced coach crowding and station proximity alarms.
+
+---
+
+## 📱 App Screenshots & Visual Design System (Stitch Workspace Builder)
+
+LocalLink's user interface is custom-engineered following the **Stitch Design System** (`stitch_project_workspace_builder`), providing an authentic, utilitarian, and high-legibility experience for Mumbai rail commuters:
+
+<table>
+  <tr>
+    <td align="center" width="33%">
+      <img src="docs/screenshots/01_commuter_dashboard.png" width="280" alt="Commuter Dashboard Screen" /><br />
+      <b>1. Commuter Home & Dashboard</b><br />
+      <sub>Verified offline ribbon, From/To station card with WR/CR badges, upcoming departure widget (08:42 AM PF 3), and saved commutes.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/screenshots/02_station_search.png" width="280" alt="Station Search Screen" /><br />
+      <b>2. Station Search & Interchange Hubs</b><br />
+      <sub>Instant trilingual autocomplete, corridor filter tabs, Dadar Interchange Dossier with North FOB advice & 3-column amenities grid.</sub>
+    </td>
+    <td align="center" width="33%">
+      <img src="docs/screenshots/03_route_results.png" width="280" alt="Route Results Screen" /><br />
+      <b>3. Route Results & Fast/Slow Rail</b><br />
+      <sub>Sticky headplate (BVI ➔ CCG), morning peak selector, fastest commute pill, 5px corridor rail, platform box & 4-tier crowd meter.</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="docs/screenshots/04_journey_destination_alarm.png" width="280" alt="Journey Alarm Screen" /><br />
+      <b>4. Journey & Destination Alarm</b><br />
+      <sub>Horizontal 15-Car Rake Visualizer (C1–C15 with C8 YOU active highlight), approach countdown (1.8 km to Marine Lines) & stop timeline.</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="docs/screenshots/05_network_map_hubs.png" width="280" alt="Network Map Hubs Screen" /><br />
+      <b>5. Network Map & Interchange Hubs</b><br />
+      <sub>Schematic transit map & OpenStreetMap geographic switcher, line status strip, Dadar hub radar glow, and station inspector bottom sheet.</sub>
+    </td>
+  </tr>
+</table>
 
 ---
 
@@ -48,11 +86,12 @@
 - **Instant Quick Prompts**: Quick prompt chips for fast access to popular queries, Sunday Mega Block schedules, and AC local timetables.
 
 ### 🎨 Stitch UI Design System Alignment
-- **Pixel-Accurate Stitch Integration**: Faithful implementation of design assets from Stitch Project `3963698584923642931` (located in `stitch_screens/`):
-  - **Journey & Destination Alarm** (`07f562ca7acd426eabb630a5bf681bc6`): 15-car rake visualizer (C1-C15 with Ladies/Divyangjan/First Class chips), approach countdown, and stop progression timeline.
-  - **Route Results** (`cf20c0f8193c41ab97f87e68b505debf`): Clean route cards with Fast/Slow indicators, transfer buffers, and intermediate stop expansion.
-  - **Network Map & Hubs** (`457e4683d57b4784974802d597be4250`): Full corridor map with interchange hub badges (DDR, CSMT, TNA, KYN).
-  - **Station Search & Commuter Dashboard** (`aa16f7d630ad4659903e832fa0111d9b`): Pinned "My Saved Commutes", search history, quick junction chips, and live Sunday Mega Block advisory banner.
+- **Pixel-Accurate Stitch Integration**: Faithful implementation of design assets from Stitch Project `3963698584923642931` (stored in [`docs/screenshots/`](docs/screenshots/) and `stitch_project_workspace_builder/`):
+  - [**Commuter Home & Dashboard**](docs/screenshots/01_commuter_dashboard.png): Verified offline timetable ribbon, From/To station card with WR/CR badges, upcoming departure widget (08:42 AM PF 3), and saved commute shortcuts.
+  - [**Station Search & Interchange Hubs**](docs/screenshots/02_station_search.png): Instant trilingual autocomplete, corridor filter tabs, Dadar Interchange Dossier with North FOB advice & 3-column amenities grid.
+  - [**Route Results**](docs/screenshots/03_route_results.png): Sticky route headplate, morning peak selector, fastest commute badge, 5px left corridor rail, platform box & 4-tier crowd meter.
+  - [**Journey & Destination Alarm**](docs/screenshots/04_journey_destination_alarm.png): 15-car rake visualizer (C1-C15 with C8 YOU highlight), approach countdown (1.8 km to Marine Lines) & stop timeline.
+  - [**Network Map & Hubs**](docs/screenshots/05_network_map_hubs.png): Interactive schematic transit map & OpenStreetMap geographic switcher, line status strip, Dadar hub radar glow, and station inspector bottom sheet.
 
 ### 🌐 Trilingual First-Class Citizen
 - Full localization across all screens, modals, badges, and alerts in:
